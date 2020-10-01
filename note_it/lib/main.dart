@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:note_it/screens/home_page.dart';
+import 'package:note_it/screens/home_screen.dart';
+import 'package:note_it/screens/login_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -12,12 +13,13 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Note It!',
       theme: ThemeData(
-
+        fontFamily: 'Montserrat',
       ),
 
-      initialRoute: HomePage.id,
+      initialRoute: LoginScreen.id,
       routes: {
-        HomePage.id: (context) => HomePage(),
+        LoginScreen.id: (context) => LoginScreen(),
+        HomeScreen.id: (context) => HomeScreen(),
       },
     );
   }
