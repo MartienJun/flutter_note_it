@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:note_it/constants.dart';
-import 'package:note_it/screens/home_screen.dart';
+import 'package:note_it/components/navigation.dart';
 
 class LoginScreen extends StatefulWidget {
   static const String id = 'login_screen';
@@ -55,7 +55,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           labelText: 'Username',
                           labelStyle: TextStyle(
                             fontWeight: FontWeight.w600,
-                            color: fontColorGray,
+                            color: ColorGray,
                           ),
                           enabledBorder: InputBorder.none,
                           focusedBorder: InputBorder.none,
@@ -76,7 +76,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           labelText: 'Password',
                           labelStyle: TextStyle(
                             fontWeight: FontWeight.w600,
-                            color: fontColorGray,
+                            color: ColorGray,
                           ),
                           enabledBorder: InputBorder.none,
                           focusedBorder: InputBorder.none,
@@ -94,7 +94,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                       color: Colors.white,
                       onPressed: () {
-                        Navigator.pushNamed(context, HomeScreen.id);
+                        Navigator.pushReplacementNamed(context, MyNavigation.id);
                       },
                       child: Text(
                         'Log In',
