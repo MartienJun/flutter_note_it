@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:note_it/constants.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+//Note It
+import 'package:note_it/constants.dart';
 import 'package:note_it/screens/home_screen.dart';
 import 'package:note_it/screens/reminder_screen.dart';
 import 'package:note_it/screens/category_screen.dart';
@@ -33,12 +34,16 @@ class _MyNavigationState extends State<MyNavigation> {
   }
 
   void _onItemTapped(int selectedIndex) {
+    print(_selectedIndex);
     _pageController.jumpToPage(selectedIndex);
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar:AppBar(
+        backgroundColor: primaryColor,
+      ),
       body: PageView(
         controller: _pageController,
         /*
@@ -50,6 +55,8 @@ class _MyNavigationState extends State<MyNavigation> {
         onPageChanged: _onPageChanged,
       ),
       bottomNavigationBar: BottomNavigationBar(
+
+        currentIndex: _selectedIndex,
         //If i tapped, then ...
         onTap: _onItemTapped,
         //List of Item (Screens)
