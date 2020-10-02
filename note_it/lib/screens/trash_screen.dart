@@ -2,20 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:note_it/constants.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class HomeScreen extends StatefulWidget {
-  static const String id = 'home_page';
+class TrashScreen extends StatefulWidget {
+  static const String id = 'trash_screen';
 
   @override
-  _HomeScreenState createState() => _HomeScreenState();
+  _TrashScreenState createState() => _TrashScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _TrashScreenState extends State<TrashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
         child: SvgPicture.asset(
-          'assets/icons/writing.svg',
+          'assets/icons/trash.svg',
           color: primaryColor,
           width: 120.0,
         ),
