@@ -15,17 +15,18 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
+      resizeToAvoidBottomPadding: false,
       body: SafeArea(
         child: Column(
           children: <Widget>[
-            Expanded(
-              flex: 1,
+            Flexible(
+              fit: FlexFit.tight,
               child: Image.asset(
                 'assets/images/logo.png',
                 width: 102.0,
               ),
             ),
-            Expanded(
+            Flexible(
               flex: 2,
               child: Container(
                 padding: EdgeInsets.only(
