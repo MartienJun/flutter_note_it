@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+
 //Note It
 import 'package:note_it/constants.dart';
 import 'package:note_it/screens/home_screen.dart';
@@ -41,7 +42,7 @@ class _MyNavigationState extends State<MyNavigation> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar:AppBar(
+      appBar: AppBar(
         backgroundColor: primaryColor,
       ),
       body: PageView(
@@ -54,8 +55,16 @@ class _MyNavigationState extends State<MyNavigation> {
         children: _screens,
         onPageChanged: _onPageChanged,
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: null,
+        elevation: 1,
+        backgroundColor: primaryColor,
+        child: Icon(
+          Icons.add,
+          //color: secondaryColor,
+        ),
+      ),
       bottomNavigationBar: BottomNavigationBar(
-
         currentIndex: _selectedIndex,
         //If i tapped, then ...
         onTap: _onItemTapped,
@@ -90,7 +99,7 @@ class _MyNavigationState extends State<MyNavigation> {
               style: TextStyle(
                 color: _selectedIndex == 1 ? secondaryColor : Colors.white,
                 fontWeight:
-                _selectedIndex == 1 ? FontWeight.w700 : FontWeight.w400,
+                    _selectedIndex == 1 ? FontWeight.w700 : FontWeight.w400,
               ),
             ),
             backgroundColor: primaryColor,
@@ -107,7 +116,7 @@ class _MyNavigationState extends State<MyNavigation> {
               style: TextStyle(
                 color: _selectedIndex == 2 ? secondaryColor : Colors.white,
                 fontWeight:
-                _selectedIndex == 2 ? FontWeight.w700 : FontWeight.w400,
+                    _selectedIndex == 2 ? FontWeight.w700 : FontWeight.w400,
               ),
             ),
             backgroundColor: primaryColor,
@@ -124,7 +133,7 @@ class _MyNavigationState extends State<MyNavigation> {
               style: TextStyle(
                 color: _selectedIndex == 3 ? secondaryColor : Colors.white,
                 fontWeight:
-                _selectedIndex == 3 ? FontWeight.w700 : FontWeight.w400,
+                    _selectedIndex == 3 ? FontWeight.w700 : FontWeight.w400,
               ),
             ),
             backgroundColor: primaryColor,
