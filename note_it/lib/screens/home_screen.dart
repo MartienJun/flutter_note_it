@@ -14,29 +14,50 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
+
     return Scaffold(
       body: SafeArea(
-        child: Container(
-          alignment: Alignment.center,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              SvgPicture.asset(
-                'assets/icons/writing.svg',
-                color: primaryColor,
-                width: 120.0,
+        child: ListView(
+          scrollDirection: Axis.vertical,
+          children: [
+            Container(
+              margin: EdgeInsets.all(10.0),
+              width: size.width,
+              height: size.height/4,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20.0),
+                color: Colors.grey,
               ),
-              SizedBox(height: 22.0),
-              Text(
-                'Note is Empty',
-                style: TextStyle(
-                  color: secondaryColor,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 23.0,
-                ),
+            ),
+            Container(
+              margin: EdgeInsets.all(10.0),
+              width: size.width,
+              height: size.height/4,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20.0),
+                color: Colors.grey,
               ),
-            ],
-          ),
+            ),
+            Container(
+              margin: EdgeInsets.all(10.0),
+              width: size.width,
+              height: size.height/4,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20.0),
+                color: Colors.grey,
+              ),
+            ),
+            Container(
+              margin: EdgeInsets.all(10.0),
+              width: size.width,
+              height: size.height/4,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20.0),
+                color: Colors.grey,
+              ),
+            ),
+          ],
         ),
       ),
     );
