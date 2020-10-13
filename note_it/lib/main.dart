@@ -6,6 +6,7 @@ import 'package:note_it/screens/reminder_screen.dart';
 import 'package:note_it/screens/category_screen.dart';
 import 'package:note_it/screens/settings_screen.dart';
 import 'package:note_it/screens/trash_screen.dart';
+import 'package:note_it/screens/user_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -31,6 +32,7 @@ class MyApp extends StatelessWidget {
         CategoryScreen.id: (context) => CategoryScreen(),
         TrashScreen.id: (context) => TrashScreen(),
         SettingsScreen.id: (context) => SettingsScreen(),
+        UserScreen.id: (context) => UserScreen(),
       },
     );
   }

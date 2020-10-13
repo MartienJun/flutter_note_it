@@ -5,8 +5,9 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:note_it/constants.dart';
 import 'package:note_it/screens/home_screen.dart';
 import 'package:note_it/screens/reminder_screen.dart';
-import 'package:note_it/screens/category_screen.dart';
-import 'package:note_it/screens/trash_screen.dart';
+//import 'package:note_it/screens/category_screen.dart';
+//import 'package:note_it/screens/trash_screen.dart';
+import 'package:note_it/screens/user_screen.dart';
 
 class MyNavigation extends StatefulWidget {
   static const String id = 'my_navigation';
@@ -22,8 +23,7 @@ class _MyNavigationState extends State<MyNavigation> {
   List<Widget> _screens = [
     HomeScreen(),
     ReminderScreen(),
-    CategoryScreen(),
-    TrashScreen(),
+    UserScreen(),
   ];
 
   int _selectedIndex = 0;
@@ -42,9 +42,6 @@ class _MyNavigationState extends State<MyNavigation> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: primaryColor,
-      ),
       body: PageView(
         controller: _pageController,
         /*
@@ -65,6 +62,7 @@ class _MyNavigationState extends State<MyNavigation> {
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: primaryColor,
         currentIndex: _selectedIndex,
         //If i tapped, then ...
         onTap: _onItemTapped,
@@ -107,33 +105,16 @@ class _MyNavigationState extends State<MyNavigation> {
           //Index 2
           BottomNavigationBarItem(
             icon: SvgPicture.asset(
-              'assets/icons/menu.svg',
-              width: 30,
+              'assets/icons/user.svg',
+              width: 20,
               color: _selectedIndex == 2 ? secondaryColor : Colors.white,
             ),
             title: Text(
-              'Category',
+              'User',
               style: TextStyle(
                 color: _selectedIndex == 2 ? secondaryColor : Colors.white,
                 fontWeight:
-                    _selectedIndex == 2 ? FontWeight.w700 : FontWeight.w400,
-              ),
-            ),
-            backgroundColor: primaryColor,
-          ),
-          //Index 3
-          BottomNavigationBarItem(
-            icon: SvgPicture.asset(
-              'assets/icons/trash.svg',
-              width: 30,
-              color: _selectedIndex == 3 ? secondaryColor : Colors.white,
-            ),
-            title: Text(
-              'Trash',
-              style: TextStyle(
-                color: _selectedIndex == 3 ? secondaryColor : Colors.white,
-                fontWeight:
-                    _selectedIndex == 3 ? FontWeight.w700 : FontWeight.w400,
+                _selectedIndex == 2 ? FontWeight.w700 : FontWeight.w400,
               ),
             ),
             backgroundColor: primaryColor,
