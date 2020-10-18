@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+
+//NoteIt Assets
 import 'package:note_it/components/navigation.dart';
 import 'package:note_it/screens/home_screen.dart';
 import 'package:note_it/screens/login_screen.dart';
@@ -14,7 +16,6 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -23,9 +24,11 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         fontFamily: 'Montserrat',
       ),
-      //Set the home screen, the first screen that shown
-      //initialRoute: LoginScreen.id,
+
+      //InitialRoute, the first page to be displayed
       initialRoute: Splash.id,
+
+      //Route to another pages
       routes: {
         Splash.id: (context) => Splash(),
         MyNavigation.id: (context) => MyNavigation(),

@@ -35,7 +35,6 @@ class _MyNavigationState extends State<MyNavigation> {
   }
 
   void _onItemTapped(int selectedIndex) {
-    print(_selectedIndex);
     _pageController.jumpToPage(selectedIndex);
   }
 
