@@ -7,6 +7,7 @@ import 'package:note_it/screens/category_screen.dart';
 import 'package:note_it/screens/settings_screen.dart';
 import 'package:note_it/screens/trash_screen.dart';
 import 'package:note_it/screens/user_screen.dart';
+import 'package:note_it/screens/splash.dart';
 
 void main() {
   runApp(MyApp());
@@ -23,8 +24,10 @@ class MyApp extends StatelessWidget {
         fontFamily: 'Montserrat',
       ),
       //Set the home screen, the first screen that shown
-      initialRoute: LoginScreen.id,
+      //initialRoute: LoginScreen.id,
+      initialRoute: Splash.id,
       routes: {
+        Splash.id: (context) => Splash(),
         MyNavigation.id: (context) => MyNavigation(),
         LoginScreen.id: (context) => LoginScreen(),
         HomeScreen.id: (context) => HomeScreen(),
