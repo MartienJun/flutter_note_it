@@ -9,11 +9,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:note_it/main.dart';
+import 'file:///C:/Users/Jason%20Alexander/Desktop/Kuliah/Semester%205%20(5PTI1)/Pemrograman%20Mobile/Pemrograman_Mobile/note_it/lib/note_it/notes.dart';
 
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget(note_it());
+    await tester.pumpWidget(notes());
 
     // Verify that our counter starts at 0.
     expect(find.text('0'), findsOneWidget);
