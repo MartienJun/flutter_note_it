@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:note_it/constants.dart';
 import 'package:note_it/components/navigation.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class LoginScreen extends StatefulWidget {
   static const String id = 'login_screen';
@@ -49,7 +51,7 @@ class _LoginScreenState extends State<LoginScreen> {
       ),
     );
 
-//Password Input Field
+    //Password Input Field
     Widget PasswordField = Container(
       padding: EdgeInsets.symmetric(
         horizontal: 15,
@@ -89,13 +91,13 @@ class _LoginScreenState extends State<LoginScreen> {
     //Button Sign In
     Widget ButtonSignIn = RaisedButton(
       padding: EdgeInsets.symmetric(
-        vertical: 12,
+        vertical: 15,
         horizontal: 40,
       ),
       color: Colors.white,
       elevation: 4.0,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(30),
       ),
       splashColor: primaryColor.withOpacity(0.15),
       onPressed: () {
@@ -104,7 +106,7 @@ class _LoginScreenState extends State<LoginScreen> {
       child: Text(
         'SIGN IN',
         style: TextStyle(
-          fontWeight: FontWeight.w500,
+          fontWeight: FontWeight.w700,
           fontSize: 14,
           color: primaryColor,
         ),
@@ -114,20 +116,20 @@ class _LoginScreenState extends State<LoginScreen> {
     //Button Sign Up
     Widget ButtonSignUp = RaisedButton(
       padding: EdgeInsets.symmetric(
-        vertical: 12,
+        vertical: 15,
         horizontal: 40,
       ),
       color: secondaryColor,
       elevation: 4.0,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(30),
       ),
       splashColor: primaryColor.withOpacity(0.15),
       onPressed: () {},
       child: Text(
         'SIGN UP',
         style: TextStyle(
-          fontWeight: FontWeight.w500,
+          fontWeight: FontWeight.w700,
           fontSize: 14,
           color: primaryColor,
         ),
@@ -145,7 +147,6 @@ class _LoginScreenState extends State<LoginScreen> {
               children: <Widget>[
                 Flexible(
                   flex: 1,
-                  fit: FlexFit.loose,
                   child: Container(
                     width: size.width,
                     padding: EdgeInsets.symmetric(horizontal: 37),
@@ -178,7 +179,6 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 Flexible(
                   flex: 3,
-                  fit: FlexFit.loose,
                   child: Container(
                     width: size.width,
                     padding: EdgeInsets.only(
@@ -206,7 +206,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               'Forget Your Password?',
                               style: TextStyle(
                                 fontWeight: FontWeight.w500,
-                                fontSize: 10,
+                                fontSize: 12,
                               ),
                             ),
                             SizedBox(width: 10),
@@ -215,13 +215,13 @@ class _LoginScreenState extends State<LoginScreen> {
                               'Click Here',
                               style: TextStyle(
                                 fontWeight: FontWeight.w700,
-                                fontSize: 10,
+                                fontSize: 12,
                                 color: secondaryColor,
                               ),
                             ),
                           ],
                         ),
-                        SizedBox(height: 40),
+                        SizedBox(height: 30),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: <Widget>[
@@ -229,19 +229,76 @@ class _LoginScreenState extends State<LoginScreen> {
                             ButtonSignUp,
                           ],
                         ),
-                        SizedBox(height: 23),
+                        SizedBox(height: 30),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
+                            Container(
+                              margin: EdgeInsets.only(
+                                left: 10,
+                                right: 10,
+                              ),
+                              width: size.width / 3.2,
+                              height: size.height / 300,
+                              color: secondaryColor,
+                            ),
                             Text(
                               'OR',
                               style: TextStyle(
                                 fontWeight: FontWeight.w500,
                               ),
                             ),
+                            Container(
+                              margin: EdgeInsets.only(
+                                left: 10,
+                                right: 10,
+                              ),
+                              width: size.width / 3.2,
+                              height: size.height / 300,
+                              color: secondaryColor,
+                            ),
                           ],
                         ),
-                        //Google Button
+                        SizedBox(
+                          height: 30,
+                        ),
+                        InkWell(
+                          splashColor: Colors.white60,
+                          onTap: (){},
+                          child: Container(
+                            width: size.width,
+                            height: size.height / 15,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(50),
+                              color: Colors.white,
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.black.withOpacity(0.2),
+                                  offset: Offset(0.0, 4.0),
+                                  blurRadius: 8.0,
+                                ),
+                              ],
+                            ),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                SvgPicture.asset(
+                                  'assets/icons/google.svg',
+                                  width: 25,
+                                ),
+                                SizedBox(width: size.width / 30,),
+                                Text(
+                                  'Sign in with Google',
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.w700,
+                                    fontSize: 15,
+                                    color: secondaryColor,
+                                  ),
+                                ),
+                              ],
+                            )
+                          ),
+                        ),
                       ],
                     ),
                   ),
