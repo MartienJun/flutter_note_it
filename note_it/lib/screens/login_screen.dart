@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:note_it/constants.dart';
 import 'package:note_it/components/navigation.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class LoginScreen extends StatefulWidget {
   static const String id = 'login_screen';
@@ -15,6 +14,8 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
+
     //Email Input Field
     Widget EmailField = Container(
       padding: EdgeInsets.symmetric(
@@ -136,7 +137,44 @@ class _LoginScreenState extends State<LoginScreen> {
       ),
     );
 
-    Size size = MediaQuery.of(context).size;
+    //Button Google
+    Widget ButtonGoogle = InkWell(
+      splashColor: Colors.white60,
+      onTap: (){},
+      child: Container(
+          width: size.width,
+          height: size.height / 15,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(50),
+            color: Colors.white,
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withOpacity(0.2),
+                offset: Offset(0.0, 4.0),
+                blurRadius: 8.0,
+              ),
+            ],
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SvgPicture.asset(
+                'assets/icons/google.svg',
+                width: 25,
+              ),
+              SizedBox(width: size.width / 30,),
+              Text(
+                'Sign in with Google',
+                style: TextStyle(
+                  fontWeight: FontWeight.w700,
+                  fontSize: 15,
+                  color: secondaryColor,
+                ),
+              ),
+            ],
+          )
+      ),
+    );
 
     return OrientationBuilder(
       builder: (context, orientation) {
@@ -182,9 +220,9 @@ class _LoginScreenState extends State<LoginScreen> {
                   child: Container(
                     width: size.width,
                     padding: EdgeInsets.only(
-                      top: 90,
-                      left: 37,
-                      right: 37,
+                      top: size.height / 11,
+                      left: size.width / 11,
+                      right: size.width / 11,
                     ),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.only(
@@ -262,43 +300,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         SizedBox(
                           height: 30,
                         ),
-                        InkWell(
-                          splashColor: Colors.white60,
-                          onTap: (){},
-                          child: Container(
-                            width: size.width,
-                            height: size.height / 15,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(50),
-                              color: Colors.white,
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.black.withOpacity(0.2),
-                                  offset: Offset(0.0, 4.0),
-                                  blurRadius: 8.0,
-                                ),
-                              ],
-                            ),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                SvgPicture.asset(
-                                  'assets/icons/google.svg',
-                                  width: 25,
-                                ),
-                                SizedBox(width: size.width / 30,),
-                                Text(
-                                  'Sign in with Google',
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.w700,
-                                    fontSize: 15,
-                                    color: secondaryColor,
-                                  ),
-                                ),
-                              ],
-                            )
-                          ),
-                        ),
+                        ButtonGoogle,
                       ],
                     ),
                   ),
