@@ -26,6 +26,7 @@ class _UserScreenState extends State<UserScreen> {
                   children: [
                     Image(
                       image: AssetImage('assets/images/profile.png'),
+                      width: size.width / 2.7,
                     ),
                     SizedBox(height: 10.0),
                     Text(
@@ -33,7 +34,7 @@ class _UserScreenState extends State<UserScreen> {
                       style: TextStyle(
                         fontSize: 24.0,
                         fontWeight: FontWeight.bold,
-                        color: primaryColor,
+                        color: secondaryColor,
                       ),
                     ),
                   ],
@@ -41,43 +42,83 @@ class _UserScreenState extends State<UserScreen> {
               ),
               SizedBox(height: 55.0),
               //Button 1
-              Container(
-                  padding:
-                      EdgeInsets.symmetric(vertical: 15.0, horizontal: 25.0),
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(20.0),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black.withOpacity(0.16),
-                        offset: Offset(0.0, 2.0),
-                        blurRadius: 4.0,
-                      ),
-                    ],
-                  ),
-                  child: Row(
-                    children: [
-                      SvgPicture.asset(
-                        'assets/icons/menu.svg',
-                        width: 25.0,
-                        color: primaryColor,
-                      ),
-                      SizedBox(width: 20.0),
-                      Text(
-                        'Category',
-                        style: TextStyle(
-                          color: primaryColor,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 19.0,
+              InkWell(
+                onTap: (){},
+                child: Container(
+                    padding: EdgeInsets.symmetric(vertical: 15.0, horizontal: 25.0),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(20.0),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.16),
+                          offset: Offset(0.0, 2.0),
+                          blurRadius: 4.0,
                         ),
-                      ),
-                    ],
-                  )),
+                      ],
+                    ),
+                    child: Row(
+                      children: [
+                        SvgPicture.asset(
+                          'assets/icons/menu.svg',
+                          width: 25.0,
+                          color: secondaryColor,
+                        ),
+                        SizedBox(width: 20.0),
+                        Text(
+                          'Category',
+                          style: TextStyle(
+                            color: secondaryColor,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 19.0,
+                          ),
+                        ),
+                      ],
+                    )),
+              ),
               SizedBox(height: 20.0),
               //Button 2
-              Container(
-                  padding:
-                      EdgeInsets.symmetric(vertical: 15.0, horizontal: 25.0),
+              InkWell(
+                onTap: (){},
+                child: Container(
+                    padding:
+                        EdgeInsets.symmetric(vertical: 15.0, horizontal: 25.0),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(20.0),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.16),
+                          offset: Offset(0.0, 2.0),
+                          blurRadius: 4.0,
+                        ),
+                      ],
+                    ),
+                    child: Row(
+                      children: [
+                        SvgPicture.asset(
+                          'assets/icons/trash.svg',
+                          width: 25.0,
+                          color: secondaryColor,
+                        ),
+                        SizedBox(width: 20.0),
+                        Text(
+                          'Trash',
+                          style: TextStyle(
+                            color: secondaryColor,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 19.0,
+                          ),
+                        ),
+                      ],
+                    )),
+              ),
+              SizedBox(height: 20.0),
+              //Button 3
+              InkWell(
+                onTap: (){},
+                child: Container(
+                  padding: EdgeInsets.symmetric(vertical: 15.0, horizontal: 25.0),
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(20.0),
@@ -92,53 +133,21 @@ class _UserScreenState extends State<UserScreen> {
                   child: Row(
                     children: [
                       SvgPicture.asset(
-                        'assets/icons/trash.svg',
+                        'assets/icons/settings.svg',
                         width: 25.0,
-                        color: primaryColor,
+                        color: secondaryColor,
                       ),
                       SizedBox(width: 20.0),
                       Text(
-                        'Trash',
+                        'Settings',
                         style: TextStyle(
-                          color: primaryColor,
+                          color: secondaryColor,
                           fontWeight: FontWeight.bold,
                           fontSize: 19.0,
                         ),
                       ),
                     ],
-                  )),
-              SizedBox(height: 20.0),
-              //Button 3
-              Container(
-                padding: EdgeInsets.symmetric(vertical: 15.0, horizontal: 25.0),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(20.0),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black.withOpacity(0.16),
-                      offset: Offset(0.0, 2.0),
-                      blurRadius: 4.0,
-                    ),
-                  ],
-                ),
-                child: Row(
-                  children: [
-                    SvgPicture.asset(
-                      'assets/icons/settings.svg',
-                      width: 25.0,
-                      color: primaryColor,
-                    ),
-                    SizedBox(width: 20.0),
-                    Text(
-                      'Settings',
-                      style: TextStyle(
-                        color: primaryColor,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 19.0,
-                      ),
-                    ),
-                  ],
+                  ),
                 ),
               ),
             ],
