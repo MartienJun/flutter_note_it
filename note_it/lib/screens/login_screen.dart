@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:note_it/constants.dart';
 import 'package:note_it/components/navigation.dart';
+//Delet later
+import 'package:note_it/screens/editNote_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   static const String id = 'login_screen';
@@ -140,7 +142,9 @@ class _LoginScreenState extends State<LoginScreen> {
     //Button Google
     Widget ButtonGoogle = InkWell(
       splashColor: Colors.white60,
-      onTap: (){},
+      onTap: (){
+        Navigator.pushNamed(context, EditNote.id);
+      },
       child: Container(
           width: size.width,
           height: size.height / 15,

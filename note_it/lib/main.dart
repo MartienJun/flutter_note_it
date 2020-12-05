@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 
-//NoteIt Assets
+//NoteIt Screens
 import 'package:note_it/components/navigation.dart';
 import 'package:note_it/screens/home_screen.dart';
 import 'package:note_it/screens/login_screen.dart';
+import 'package:note_it/screens/editNote_screen.dart';
 import 'package:note_it/screens/reminder_screen.dart';
 import 'package:note_it/screens/category_screen.dart';
 import 'package:note_it/screens/settings_screen.dart';
@@ -34,6 +35,7 @@ class MyApp extends StatelessWidget {
         MyNavigation.id: (context) => MyNavigation(),
         LoginScreen.id: (context) => LoginScreen(),
         HomeScreen.id: (context) => HomeScreen(),
+        EditNote.id: (context) => EditNote(),
         ReminderScreen.id: (context) => ReminderScreen(),
         CategoryScreen.id: (context) => CategoryScreen(),
         TrashScreen.id: (context) => TrashScreen(),
