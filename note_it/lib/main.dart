@@ -1,19 +1,22 @@
 import 'package:flutter/material.dart';
+
+//NoteIt Screens
 import 'package:note_it/components/navigation.dart';
 import 'package:note_it/screens/home_screen.dart';
 import 'package:note_it/screens/login_screen.dart';
+import 'package:note_it/screens/editNote_screen.dart';
 import 'package:note_it/screens/reminder_screen.dart';
 import 'package:note_it/screens/category_screen.dart';
 import 'package:note_it/screens/settings_screen.dart';
 import 'package:note_it/screens/trash_screen.dart';
 import 'package:note_it/screens/user_screen.dart';
+import 'package:note_it/screens/splash.dart';
 
 void main() {
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -22,12 +25,17 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         fontFamily: 'Montserrat',
       ),
-      //Set the home screen, the first screen that shown
-      initialRoute: LoginScreen.id,
+
+      //InitialRoute, the first page to be displayed
+      initialRoute: Splash.id,
+
+      //Route to another pages
       routes: {
+        Splash.id: (context) => Splash(),
         MyNavigation.id: (context) => MyNavigation(),
         LoginScreen.id: (context) => LoginScreen(),
         HomeScreen.id: (context) => HomeScreen(),
+        EditNote.id: (context) => EditNote(),
         ReminderScreen.id: (context) => ReminderScreen(),
         CategoryScreen.id: (context) => CategoryScreen(),
         TrashScreen.id: (context) => TrashScreen(),
