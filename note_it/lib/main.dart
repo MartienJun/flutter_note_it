@@ -9,9 +9,9 @@ import 'package:note_it/screens/login_screen.dart';
 import 'package:note_it/screens/home_screen.dart';
 import 'package:note_it/screens/reminder_screen.dart';
 import 'package:note_it/screens/user_screen.dart';
+import 'package:note_it/screens/settings_screen.dart';
 import 'package:note_it/screens/editNote_screen.dart';
 import 'package:note_it/screens/category_screen.dart';
-import 'package:note_it/screens/settings_screen.dart';
 import 'package:note_it/screens/trash_screen.dart';
 
 void main() {

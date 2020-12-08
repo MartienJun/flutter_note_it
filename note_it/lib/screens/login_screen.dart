@@ -2,9 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:note_it/constants.dart';
+
+// Components
 import 'package:note_it/components/navigation.dart';
-//Delet later
-import 'package:note_it/screens/editNote_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   static const String id = 'login_screen';
@@ -18,13 +18,13 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
 
-    //Email Input Field
+    // Email input field
     Widget EmailField = Container(
       padding: EdgeInsets.symmetric(
-        horizontal: 15,
+        horizontal: 15.0,
       ),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(40),
+        borderRadius: BorderRadius.circular(40.0),
         color: Colors.white,
         boxShadow: [
           BoxShadow(
@@ -40,12 +40,12 @@ class _LoginScreenState extends State<LoginScreen> {
           labelText: 'Email',
           icon: Icon(
             Icons.account_circle,
-            size: 24,
+            size: 24.0,
             color: secondaryColor,
           ),
           labelStyle: TextStyle(
             fontWeight: FontWeight.w400,
-            fontSize: 14,
+            fontSize: 14.0,
             color: secondaryColor,
           ),
           enabledBorder: InputBorder.none,
@@ -54,13 +54,13 @@ class _LoginScreenState extends State<LoginScreen> {
       ),
     );
 
-    //Password Input Field
+    // Password input field
     Widget PasswordField = Container(
       padding: EdgeInsets.symmetric(
-        horizontal: 15,
+        horizontal: 15.0,
       ),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(40),
+        borderRadius: BorderRadius.circular(40.0),
         color: Colors.white,
         boxShadow: [
           BoxShadow(
@@ -77,12 +77,12 @@ class _LoginScreenState extends State<LoginScreen> {
           labelText: 'Password',
           icon: Icon(
             Icons.lock,
-            size: 24,
+            size: 24.0,
             color: secondaryColor,
           ),
           labelStyle: TextStyle(
             fontWeight: FontWeight.w400,
-            fontSize: 14,
+            fontSize: 14.0,
             color: secondaryColor,
           ),
           enabledBorder: InputBorder.none,
@@ -91,16 +91,16 @@ class _LoginScreenState extends State<LoginScreen> {
       ),
     );
 
-    //Button Sign In
+    // Button sign in
     Widget ButtonSignIn = RaisedButton(
       padding: EdgeInsets.symmetric(
-        vertical: 15,
-        horizontal: 40,
+        vertical: 15.0,
+        horizontal: 40.0,
       ),
       color: Colors.white,
       elevation: 4.0,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(30),
+        borderRadius: BorderRadius.circular(30.0),
       ),
       splashColor: primaryColor.withOpacity(0.15),
       onPressed: () {
@@ -110,22 +110,22 @@ class _LoginScreenState extends State<LoginScreen> {
         'SIGN IN',
         style: TextStyle(
           fontWeight: FontWeight.w700,
-          fontSize: 14,
+          fontSize: 14.0,
           color: primaryColor,
         ),
       ),
     );
 
-    //Button Sign Up
+    // Button sign up
     Widget ButtonSignUp = RaisedButton(
       padding: EdgeInsets.symmetric(
-        vertical: 15,
-        horizontal: 40,
+        vertical: 15.0,
+        horizontal: 40.0,
       ),
       color: secondaryColor,
       elevation: 4.0,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(30),
+        borderRadius: BorderRadius.circular(30.0),
       ),
       splashColor: primaryColor.withOpacity(0.15),
       onPressed: () {},
@@ -133,23 +133,21 @@ class _LoginScreenState extends State<LoginScreen> {
         'SIGN UP',
         style: TextStyle(
           fontWeight: FontWeight.w700,
-          fontSize: 14,
+          fontSize: 14.0,
           color: primaryColor,
         ),
       ),
     );
 
-    //Button Google
+    // Button Google
     Widget ButtonGoogle = InkWell(
       splashColor: Colors.white60,
-      onTap: (){
-        Navigator.pushNamed(context, EditNote.id);
-      },
+      onTap: (){},
       child: Container(
           width: size.width,
-          height: size.height / 15,
+          height: size.height / 15.0,
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(50),
+            borderRadius: BorderRadius.circular(50.0),
             color: Colors.white,
             boxShadow: [
               BoxShadow(
@@ -164,19 +162,146 @@ class _LoginScreenState extends State<LoginScreen> {
             children: [
               SvgPicture.asset(
                 'assets/icons/google.svg',
-                width: 25,
+                width: 25.0,
               ),
-              SizedBox(width: size.width / 30,),
+              SizedBox(width: size.width / 30.0),
               Text(
                 'Sign in with Google',
                 style: TextStyle(
                   fontWeight: FontWeight.w700,
-                  fontSize: 15,
+                  fontSize: 15.0,
                   color: secondaryColor,
                 ),
               ),
             ],
           )
+      ),
+    );
+
+    // Slogan field
+    Widget Slogan = Flexible(
+      flex: 1,
+      child: Container(
+        width: size.width,
+        padding: EdgeInsets.symmetric(horizontal: 37.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Text(
+              'Welcome to Note It!',
+              style: TextStyle(
+                fontWeight: FontWeight.w700,
+                fontSize: 24.0,
+                color: primaryColor,
+                letterSpacing: 0.15,
+              ),
+            ),
+            SizedBox(height: 10.0),
+            Text(
+              'Start writing now!',
+              style: TextStyle(
+                fontWeight: FontWeight.w500,
+                fontSize: 14.0,
+                color: Colors.black,
+                letterSpacing: 0.15,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+
+    // Sign in field
+    Widget signInField = Flexible(
+      flex: 3,
+      child: Container(
+        width: size.width,
+        padding: EdgeInsets.only(
+          top: size.height / 11.0,
+          left: size.width / 11.0,
+          right: size.width / 11.0,
+        ),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.only(
+            topRight: Radius.circular(20.0),
+            topLeft: Radius.circular(20.0),
+          ),
+          color: primaryColor,
+        ),
+        child: Column(
+          children: <Widget>[
+            EmailField,
+            SizedBox(height: 30.0),
+            PasswordField,
+            SizedBox(height: 23.0),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Text(
+                  'Forget Your Password?',
+                  style: TextStyle(
+                    fontWeight: FontWeight.w500,
+                    fontSize: 12.0,
+                  ),
+                ),
+                SizedBox(width: 10.0),
+                //Edit this later
+                InkWell(
+                  onTap: () {},
+                  child: Text(
+                    'Click Here',
+                    style: TextStyle(
+                      fontWeight: FontWeight.w700,
+                      fontSize: 12.0,
+                      color: secondaryColor,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(height: 30.0),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                ButtonSignIn,
+                ButtonSignUp,
+              ],
+            ),
+            SizedBox(height: 30.0),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Container(
+                  margin: EdgeInsets.only(
+                    left: 10.0,
+                    right: 10.0,
+                  ),
+                  width: size.width / 3.2,
+                  height: size.height / 300.0,
+                  color: secondaryColor,
+                ),
+                Text(
+                  'OR',
+                  style: TextStyle(
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+                Container(
+                  margin: EdgeInsets.only(
+                    left: 10.0,
+                    right: 10.0,
+                  ),
+                  width: size.width / 3.2,
+                  height: size.height / 300.0,
+                  color: secondaryColor,
+                ),
+              ],
+            ),
+            SizedBox(height: 30.0),
+            ButtonGoogle,
+          ],
+        ),
       ),
     );
 
@@ -187,128 +312,8 @@ class _LoginScreenState extends State<LoginScreen> {
           body: SafeArea(
             child: Column(
               children: <Widget>[
-                Flexible(
-                  flex: 1,
-                  child: Container(
-                    width: size.width,
-                    padding: EdgeInsets.symmetric(horizontal: 37),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Text(
-                          'Welcome to Note It!',
-                          style: TextStyle(
-                            fontWeight: FontWeight.w700,
-                            fontSize: 24,
-                            color: primaryColor,
-                            letterSpacing: 0.15,
-                          ),
-                        ),
-                        SizedBox(height: 10),
-                        Text(
-                          'Start writing now!',
-                          style: TextStyle(
-                            fontWeight: FontWeight.w500,
-                            fontSize: 14,
-                            color: Colors.black,
-                            letterSpacing: 0.15,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                Flexible(
-                  flex: 3,
-                  child: Container(
-                    width: size.width,
-                    padding: EdgeInsets.only(
-                      top: size.height / 11,
-                      left: size.width / 11,
-                      right: size.width / 11,
-                    ),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.only(
-                        topRight: Radius.circular(20),
-                        topLeft: Radius.circular(20),
-                      ),
-                      color: primaryColor,
-                    ),
-                    child: Column(
-                      children: <Widget>[
-                        EmailField,
-                        SizedBox(height: 30),
-                        PasswordField,
-                        SizedBox(height: 23),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            Text(
-                              'Forget Your Password?',
-                              style: TextStyle(
-                                fontWeight: FontWeight.w500,
-                                fontSize: 12,
-                              ),
-                            ),
-                            SizedBox(width: 10),
-                            //Edit this later
-                            Text(
-                              'Click Here',
-                              style: TextStyle(
-                                fontWeight: FontWeight.w700,
-                                fontSize: 12,
-                                color: secondaryColor,
-                              ),
-                            ),
-                          ],
-                        ),
-                        SizedBox(height: 30),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: <Widget>[
-                            ButtonSignIn,
-                            ButtonSignUp,
-                          ],
-                        ),
-                        SizedBox(height: 30),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            Container(
-                              margin: EdgeInsets.only(
-                                left: 10,
-                                right: 10,
-                              ),
-                              width: size.width / 3.2,
-                              height: size.height / 300,
-                              color: secondaryColor,
-                            ),
-                            Text(
-                              'OR',
-                              style: TextStyle(
-                                fontWeight: FontWeight.w500,
-                              ),
-                            ),
-                            Container(
-                              margin: EdgeInsets.only(
-                                left: 10,
-                                right: 10,
-                              ),
-                              width: size.width / 3.2,
-                              height: size.height / 300,
-                              color: secondaryColor,
-                            ),
-                          ],
-                        ),
-                        SizedBox(
-                          height: 30,
-                        ),
-                        ButtonGoogle,
-                      ],
-                    ),
-                  ),
-                )
+                Slogan,
+                signInField,
               ],
             ),
           ),
