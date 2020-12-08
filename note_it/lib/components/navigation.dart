@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-//Note It
+// Components
 import 'package:note_it/constants.dart';
+
+// Screens
 import 'package:note_it/screens/home_screen.dart';
 import 'package:note_it/screens/reminder_screen.dart';
-//import 'package:note_it/screens/category_screen.dart';
-//import 'package:note_it/screens/trash_screen.dart';
 import 'package:note_it/screens/user_screen.dart';
 
 class MyNavigation extends StatefulWidget {
@@ -19,21 +19,24 @@ class MyNavigation extends StatefulWidget {
 class _MyNavigationState extends State<MyNavigation> {
   PageController _pageController = PageController();
 
-  //List of Screen
+  // List of the screen
   List<Widget> _screens = [
     HomeScreen(),
     ReminderScreen(),
     UserScreen(),
   ];
 
+  // Index of the screen
   int _selectedIndex = 0;
 
+  // Method set the index state
   void _onPageChanged(int index) {
     setState(() {
       _selectedIndex = index;
     });
   }
 
+  // Method to move to the selected page
   void _onItemTapped(int selectedIndex) {
     _pageController.jumpToPage(selectedIndex);
   }
@@ -53,7 +56,7 @@ class _MyNavigationState extends State<MyNavigation> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: null,
-        elevation: 1,
+        elevation: 1.0,
         backgroundColor: primaryColor,
         child: Icon(
           Icons.add,
@@ -67,11 +70,11 @@ class _MyNavigationState extends State<MyNavigation> {
         onTap: _onItemTapped,
         //List of Item (Screens)
         items: [
-          //Index 0
+          // Index 0 - note
           BottomNavigationBarItem(
             icon: SvgPicture.asset(
               'assets/icons/writing.svg',
-              width: 30,
+              width: 30.0,
               color: _selectedIndex == 0 ? secondaryColor : Colors.white,
             ),
             title: Text(
@@ -84,11 +87,12 @@ class _MyNavigationState extends State<MyNavigation> {
             ),
             backgroundColor: primaryColor,
           ),
-          //Index 1
+
+          // Index 1 - reminder
           BottomNavigationBarItem(
             icon: SvgPicture.asset(
               'assets/icons/notification.svg',
-              width: 30,
+              width: 30.0,
               color: _selectedIndex == 1 ? secondaryColor : Colors.white,
             ),
             title: Text(
@@ -101,11 +105,12 @@ class _MyNavigationState extends State<MyNavigation> {
             ),
             backgroundColor: primaryColor,
           ),
-          //Index 2
+
+          // Index 2 - profile
           BottomNavigationBarItem(
             icon: SvgPicture.asset(
               'assets/icons/user.svg',
-              width: 20,
+              width: 20.0,
               color: _selectedIndex == 2 ? secondaryColor : Colors.white,
             ),
             title: Text(
