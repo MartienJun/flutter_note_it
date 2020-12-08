@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
 
-//NoteIt Screens
+// Components
 import 'package:note_it/components/navigation.dart';
-import 'package:note_it/screens/home_screen.dart';
+
+// Screens
+import 'package:note_it/screens/splash.dart';
 import 'package:note_it/screens/login_screen.dart';
-import 'package:note_it/screens/editNote_screen.dart';
+import 'package:note_it/screens/home_screen.dart';
 import 'package:note_it/screens/reminder_screen.dart';
+import 'package:note_it/screens/user_screen.dart';
+import 'package:note_it/screens/editNote_screen.dart';
 import 'package:note_it/screens/category_screen.dart';
 import 'package:note_it/screens/settings_screen.dart';
 import 'package:note_it/screens/trash_screen.dart';
-import 'package:note_it/screens/user_screen.dart';
-import 'package:note_it/screens/splash.dart';
 
 void main() {
   runApp(MyApp());
@@ -20,7 +22,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
+      //debugShowCheckedModeBanner: false,
       title: 'Note It!',
       theme: ThemeData(
         fontFamily: 'Montserrat',
@@ -32,15 +34,15 @@ class MyApp extends StatelessWidget {
       //Route to another pages
       routes: {
         Splash.id: (context) => Splash(),
-        MyNavigation.id: (context) => MyNavigation(),
         LoginScreen.id: (context) => LoginScreen(),
+        MyNavigation.id: (context) => MyNavigation(),
         HomeScreen.id: (context) => HomeScreen(),
-        EditNote.id: (context) => EditNote(),
         ReminderScreen.id: (context) => ReminderScreen(),
+        UserScreen.id: (context) => UserScreen(),
+        EditNote.id: (context) => EditNote(),
         CategoryScreen.id: (context) => CategoryScreen(),
         TrashScreen.id: (context) => TrashScreen(),
         SettingsScreen.id: (context) => SettingsScreen(),
-        UserScreen.id: (context) => UserScreen(),
       },
     );
   }
