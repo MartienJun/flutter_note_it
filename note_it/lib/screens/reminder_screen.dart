@@ -38,6 +38,25 @@ class _ReminderScreenState extends State<ReminderScreen> {
       ),
     );
 
+    // Reminder
+    Widget reminder = Container(
+      margin: EdgeInsets.all(10.0),
+      width: size.width,
+      height: size.height / 4.0,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(20.0),
+        color: Colors.grey,
+      ),
+    );
+
+    // Reminder list
+    Widget noteList = ListView(
+      scrollDirection: Axis.vertical,
+      children: [
+        reminder,
+      ],
+    );
+
     return OrientationBuilder(
       builder: (context, orientation) {
         return Scaffold(
