@@ -12,14 +12,47 @@ class SettingsScreen extends StatefulWidget {
 class _SettingsScreenState extends State<SettingsScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: SvgPicture.asset(
-          'assets/icons/settings.svg',
-          color: primaryColor,
-          width: 120.0,
-        ),
+    Size size = MediaQuery.of(context).size;
+
+    // Empty settings screen
+    Widget emptySettings = Container(
+      alignment: Alignment.center,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          SvgPicture.asset(
+            'assets/icons/trash.svg',
+            color: primaryColor,
+            width: 120.0,
+          ),
+          SizedBox(height: 22.0),
+          Text(
+            'Setting is under construction',
+            style: TextStyle(
+              color: secondaryColor,
+              fontWeight: FontWeight.bold,
+              fontSize: 23.0,
+            ),
+          ),
+        ],
       ),
+    );
+
+    return OrientationBuilder(
+      builder: (context, orientation){
+        return Scaffold(
+          appBar: AppBar(
+            title: Text('Settings'),
+            centerTitle: true,
+            backgroundColor: primaryColor,
+          ),
+          body: SafeArea(
+            child: Container(
+              child: emptySettings,
+            ),
+          ),
+        );
+      },
     );
   }
 }

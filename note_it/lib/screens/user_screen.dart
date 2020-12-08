@@ -18,15 +18,16 @@ class _UserScreenState extends State<UserScreen> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
 
+    // User profile
     Widget UserData = Column(
       children: [
         Image(
-          image: AssetImage('assets/images/profile.png'),
+          image: AssetImage('assets/images/profile.png'), // Default picture
           width: size.width / 2.7,
         ),
         SizedBox(height: 10.0),
         Text(
-          'Hi, User',
+          'Hi, User', // Default nickname
           style: TextStyle(
             fontSize: 24.0,
             fontWeight: FontWeight.bold,
@@ -36,13 +37,16 @@ class _UserScreenState extends State<UserScreen> {
       ],
     );
 
+    // Button category
     Widget ButtonCategory = InkWell(
       onTap: () {
         Navigator.pushNamed(context, CategoryScreen.id);
       },
       child: Container(
           padding: EdgeInsets.symmetric(
-              vertical: 15.0, horizontal: 25.0),
+              vertical: 15.0,
+              horizontal: 25.0
+          ),
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(20.0),
@@ -74,6 +78,7 @@ class _UserScreenState extends State<UserScreen> {
           )),
     );
 
+    // Button trash
     Widget ButtonTrash = InkWell(
       onTap: () {
         Navigator.pushNamed(context, TrashScreen.id);
@@ -81,7 +86,9 @@ class _UserScreenState extends State<UserScreen> {
       child: Container(
           padding:
           EdgeInsets.symmetric(
-              vertical: 15.0, horizontal: 25.0),
+              vertical: 15.0,
+              horizontal: 25.0
+          ),
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(20.0),
@@ -113,6 +120,7 @@ class _UserScreenState extends State<UserScreen> {
           )),
     );
 
+    // Button settings
     Widget ButtonSetting = InkWell(
       onTap: () {
         Navigator.pushNamed(context, SettingsScreen.id);
@@ -157,7 +165,7 @@ class _UserScreenState extends State<UserScreen> {
           return Scaffold(
             body: SafeArea(
               child: Container(
-                padding: EdgeInsets.fromLTRB(13, 35, 13, 0),
+                padding: EdgeInsets.fromLTRB(13.0, 35.0, 13.0, 0.0),
                 child: Column(
                   children: [
                     Container(

@@ -12,14 +12,47 @@ class CategoryScreen extends StatefulWidget {
 class _CategoryScreenState extends State<CategoryScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: SvgPicture.asset(
-          'assets/icons/menu.svg',
-          color: primaryColor,
-          width: 120.0,
-        ),
+    Size size = MediaQuery.of(context).size;
+
+    // Empty category screen
+    Widget emptyCategory = Container(
+      alignment: Alignment.center,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          SvgPicture.asset(
+            'assets/icons/menu.svg',
+            color: primaryColor,
+            width: 120.0,
+          ),
+          SizedBox(height: 22.0),
+          Text(
+            'Category is Empty',
+            style: TextStyle(
+              color: secondaryColor,
+              fontWeight: FontWeight.bold,
+              fontSize: 23.0,
+            ),
+          ),
+        ],
       ),
+    );
+
+    return OrientationBuilder(
+      builder: (context, orientation){
+        return Scaffold(
+          appBar: AppBar(
+            title: Text('Category'),
+            centerTitle: true,
+            backgroundColor: primaryColor,
+          ),
+          body: SafeArea(
+            child: Container(
+              child: emptyCategory,
+            ),
+          ),
+        );
+      },
     );
   }
 }
