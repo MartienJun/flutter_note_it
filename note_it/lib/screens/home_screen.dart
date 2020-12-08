@@ -16,6 +16,31 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
 
+    // Empty note screen
+    Widget emptyNote = Container(
+      alignment: Alignment.center,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          SvgPicture.asset(
+            'assets/icons/writing.svg',
+            color: primaryColor,
+            width: 120.0,
+          ),
+          SizedBox(height: 22.0),
+          Text(
+            'Note is Empty',
+            style: TextStyle(
+              color: secondaryColor,
+              fontWeight: FontWeight.bold,
+              fontSize: 23.0,
+            ),
+          ),
+        ],
+      ),
+    );
+
+    // Note
     Widget note = Container(
       margin: EdgeInsets.all(10.0),
       width: size.width,
@@ -26,16 +51,19 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
 
+    // Note list
+    Widget noteList = ListView(
+      scrollDirection: Axis.vertical,
+      children: [
+        note,
+      ],
+    );
+
     return OrientationBuilder(
       builder: (context, orientation) {
         return Scaffold(
           body: SafeArea(
-            child: ListView(
-              scrollDirection: Axis.vertical,
-              children: [
-                note,
-              ],
-            ),
+            child: emptyNote,
           ),
         );
       },

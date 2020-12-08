@@ -10,34 +10,42 @@ class ReminderScreen extends StatefulWidget {
 }
 
 class _ReminderScreenState extends State<ReminderScreen> {
-
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
-      body: SafeArea(
-        child: Container(
-          alignment: Alignment.center,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              SvgPicture.asset(
-                'assets/icons/notification.svg',
-                color: primaryColor,
-                width: 120.0,
-              ),
-              SizedBox(height: 22.0),
-              Text(
-                'Reminder is Empty',
-                style: TextStyle(
-                  color: secondaryColor,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 23.0,
-                ),
-              ),
-            ],
+    Size size = MediaQuery.of(context).size;
+
+    // Empty reminder screen
+    Widget emptyReminder = Container(
+      alignment: Alignment.center,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          SvgPicture.asset(
+            'assets/icons/notification.svg',
+            color: primaryColor,
+            width: 120.0,
           ),
-        ),
+          SizedBox(height: 22.0),
+          Text(
+            'Reminder is Empty',
+            style: TextStyle(
+              color: secondaryColor,
+              fontWeight: FontWeight.bold,
+              fontSize: 23.0,
+            ),
+          ),
+        ],
       ),
+    );
+
+    return OrientationBuilder(
+      builder: (context, orientation) {
+        return Scaffold(
+          body: SafeArea(
+            child: emptyReminder,
+          ),
+        );
+      },
     );
   }
 }
