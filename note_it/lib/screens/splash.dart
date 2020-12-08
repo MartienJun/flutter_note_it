@@ -1,5 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+
+// Screen
 import 'package:note_it/screens/login_screen.dart';
 
 class Splash extends StatefulWidget {
@@ -10,7 +12,7 @@ class Splash extends StatefulWidget {
 }
 
 class _SplashState extends State<Splash> {
-  //Splash start time
+  // Splash start time
   start() async {
     var _duration = new Duration(seconds: 2);
     return new Timer(_duration, loginScreen); //duration ..., go to page ...
@@ -30,15 +32,19 @@ class _SplashState extends State<Splash> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
 
-    return Scaffold(
-      body: SafeArea(
-        child: Center(
-          child: Image.asset(
-            'assets/images/logo.png',
-            width: size.width/3.5,
+    return OrientationBuilder(
+      builder: (context, orientation) {
+        return Scaffold(
+          body: SafeArea(
+            child: Center(
+              child: Image.asset(
+                'assets/images/logo.png',
+                width: size.width / 3.5,
+              ),
+            ),
           ),
-        ),
-      ),
+        );
+      },
     );
   }
 }
