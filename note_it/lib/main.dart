@@ -6,6 +6,7 @@ import 'package:note_it/components/navigation.dart';
 // Screens
 import 'package:note_it/screens/splash.dart';
 import 'package:note_it/screens/login_screen.dart';
+import 'package:note_it/screens/register_screen.dart';
 import 'package:note_it/screens/home_screen.dart';
 import 'package:note_it/screens/reminder_screen.dart';
 import 'package:note_it/screens/user_screen.dart';
@@ -35,6 +36,7 @@ class MyApp extends StatelessWidget {
       routes: {
         Splash.id: (context) => Splash(),
         LoginScreen.id: (context) => LoginScreen(),
+        RegisterScreen.id: (context) => RegisterScreen(),
         MyNavigation.id: (context) => MyNavigation(),
         HomeScreen.id: (context) => HomeScreen(),
         ReminderScreen.id: (context) => ReminderScreen(),
