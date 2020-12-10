@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 // Components
-import 'package:note_it/constants.dart';
+import 'file:///D:/Martien/Github/flutter_note_it/note_it/lib/components/constants.dart';
 
 // Screens
 import 'package:note_it/screens/home_screen.dart';

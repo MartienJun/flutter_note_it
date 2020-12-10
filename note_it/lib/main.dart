@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
 
 // Components
 import 'package:note_it/components/navigation.dart';
@@ -15,7 +16,9 @@ import 'package:note_it/screens/editNote_screen.dart';
 import 'package:note_it/screens/category_screen.dart';
 import 'package:note_it/screens/trash_screen.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(MyApp());
 }
 

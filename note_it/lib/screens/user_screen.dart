@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:note_it/constants.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-//Screens
+
+// Components
+import 'package:note_it/components/constants.dart';
+import 'package:note_it/components/authentication.dart';
+
+// Screens
 import 'package:note_it/screens/category_screen.dart';
 import 'package:note_it/screens/settings_screen.dart';
 import 'package:note_it/screens/trash_screen.dart';

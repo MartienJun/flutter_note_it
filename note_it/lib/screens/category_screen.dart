@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:note_it/constants.dart';
+import 'package:note_it/components/constants.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class CategoryScreen extends StatefulWidget {
