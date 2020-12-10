@@ -1,8 +1,16 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:note_it/components/constants.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+
+// Components
+import 'package:note_it/components/constants.dart';
+
+// CRUD
+import 'package:note_it/crud/note_crud.dart';
+import 'package:note_it/crud/note_stream.dart';
+import 'package:note_it/components/constants.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String id = 'home_page';
@@ -15,6 +23,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+    final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
     // Empty note screen
     Widget emptyNote = Container(
@@ -54,8 +63,8 @@ class _HomeScreenState extends State<HomeScreen> {
     // Note list
     Widget noteList = ListView(
       scrollDirection: Axis.vertical,
-      children: [
-        note,
+      children: <Widget>[
+        NotesStream(firestore: _firestore),
       ],
     );
 
@@ -63,7 +72,7 @@ class _HomeScreenState extends State<HomeScreen> {
       builder: (context, orientation) {
         return Scaffold(
           body: SafeArea(
-            child: emptyNote,
+            child: noteList,
           ),
         );
       },

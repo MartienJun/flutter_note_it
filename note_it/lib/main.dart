@@ -12,9 +12,9 @@ import 'package:note_it/screens/home_screen.dart';
 import 'package:note_it/screens/reminder_screen.dart';
 import 'package:note_it/screens/user_screen.dart';
 import 'package:note_it/screens/settings_screen.dart';
-import 'package:note_it/screens/editNote_screen.dart';
 import 'package:note_it/screens/category_screen.dart';
 import 'package:note_it/screens/trash_screen.dart';
+import 'package:note_it/crud/note_crud.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -44,10 +44,10 @@ class MyApp extends StatelessWidget {
         HomeScreen.id: (context) => HomeScreen(),
         ReminderScreen.id: (context) => ReminderScreen(),
         UserScreen.id: (context) => UserScreen(),
-        EditNote.id: (context) => EditNote(),
         CategoryScreen.id: (context) => CategoryScreen(),
         TrashScreen.id: (context) => TrashScreen(),
         SettingsScreen.id: (context) => SettingsScreen(),
+        NoteCRUD.id: (context) => NoteCRUD(),
       },
     );
   }
