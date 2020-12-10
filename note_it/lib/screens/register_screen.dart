@@ -1,7 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+
+// Components
 import 'package:note_it/components/constants.dart';
+import 'package:note_it/components/navigation.dart';
+import 'package:note_it/components/authentication.dart';
 
 // Screens
 import 'package:note_it/components/navigation.dart';
@@ -16,6 +21,11 @@ class RegisterScreen extends StatefulWidget {
 class _RegisterScreenState extends State<RegisterScreen> {
   @override
   Widget build(BuildContext context) {
+    // Controller for Firebase query
+    final TextEditingController registEmailController = TextEditingController();
+    final TextEditingController registPasswordController = TextEditingController();
+    final FirebaseAuth _fireauth = FirebaseAuth.instance;
+
     Size size = MediaQuery.of(context).size;
 
     // Email input field
@@ -36,6 +46,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
       ),
       child: TextField(
         onChanged: null,
+        controller: registEmailController,
         decoration: InputDecoration(
           labelText: 'Email',
           icon: Icon(
@@ -73,6 +84,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
       child: TextField(
         obscureText: true,
         onChanged: null,
+        controller: registPasswordController,
         decoration: InputDecoration(
           labelText: 'Password',
           icon: Icon(
@@ -94,8 +106,21 @@ class _RegisterScreenState extends State<RegisterScreen> {
     // Button register
     Widget ButtonRegister = InkWell(
       splashColor: Colors.white60,
-      onTap: () {
-        Navigator.pushReplacementNamed(context, MyNavigation.id);
+      onTap: () async {
+        AuthenticationService(_fireauth);
+        try {
+          UserCredential result = await AuthenticationService.firebaseAuth
+              .createUserWithEmailAndPassword(
+            email: registEmailController.text.trim(),
+            password: registPasswordController.text.trim(),
+          );
+
+          if (result != null) {
+            Navigator.pushReplacementNamed(context, MyNavigation.id);
+          }
+        } on FirebaseAuthException catch (e) {
+          print(e);
+        }
       },
       child: Container(
         width: size.width,
