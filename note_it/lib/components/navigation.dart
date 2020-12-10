@@ -54,15 +54,15 @@ class _MyNavigationState extends State<MyNavigation> {
         children: _screens,
         onPageChanged: _onPageChanged,
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: null,
-        elevation: 1.0,
-        backgroundColor: primaryColor,
-        child: Icon(
-          Icons.add,
-          //color: secondaryColor,
-        ),
-      ),
+      // floatingActionButton: FloatingActionButton(
+      //   onPressed: null,
+      //   elevation: 1.0,
+      //   backgroundColor: primaryColor,
+      //   child: Icon(
+      //     Icons.add,
+      //     //color: secondaryColor,
+      //   ),
+      // ),
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: primaryColor,
         currentIndex: _selectedIndex,

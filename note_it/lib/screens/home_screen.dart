@@ -74,6 +74,17 @@ class _HomeScreenState extends State<HomeScreen> {
           body: SafeArea(
             child: noteList,
           ),
+          floatingActionButton: FloatingActionButton(
+            onPressed: () {
+              Navigator.pushNamed(context, NoteCRUD.id, arguments: null);
+            },
+            elevation: 1,
+            backgroundColor: primaryColor,
+            child: Icon(
+              Icons.add,
+              color: secondaryColor,
+            ),
+          ),
         );
       },
     );

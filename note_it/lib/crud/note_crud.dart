@@ -68,7 +68,12 @@ class _NoteCRUDState extends State<NoteCRUD> {
               color: Colors.white,
             ),
             onPressed: () {
-              _firestore.collection('notes').doc(note.id).delete();
+              _firestore
+                  .collection('notes')
+                  .doc(AuthenticationService.firebaseAuth.currentUser.uid)
+                  .collection('notes')
+                  .doc(note.id)
+                  .delete();
               Navigator.pop(context);
             },
           ),
