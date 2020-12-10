@@ -9,6 +9,7 @@ import 'package:note_it/components/authentication.dart';
 import 'package:note_it/screens/category_screen.dart';
 import 'package:note_it/screens/settings_screen.dart';
 import 'package:note_it/screens/trash_screen.dart';
+import 'package:note_it/screens/login_screen.dart';
 
 class UserScreen extends StatefulWidget {
   static const String id = 'user_screen';
@@ -31,7 +32,7 @@ class _UserScreenState extends State<UserScreen> {
         ),
         SizedBox(height: 10.0),
         Text(
-          'Hi, User', // Default nickname
+          'Hi, ' + AuthenticationService.firebaseAuth.currentUser.email,
           style: TextStyle(
             fontSize: 24.0,
             fontWeight: FontWeight.bold,
@@ -39,6 +40,32 @@ class _UserScreenState extends State<UserScreen> {
           ),
         ),
       ],
+    );
+
+    // Button sign out
+    Widget ButtonSignOut = RaisedButton(
+      padding: EdgeInsets.symmetric(
+        vertical: 15.0,
+        horizontal: 40.0,
+      ),
+      color: primaryColor,
+      elevation: 4.0,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(30.0),
+      ),
+      splashColor: primaryColor.withOpacity(0.15),
+      onPressed: () {
+        AuthenticationService.firebaseAuth.signOut();
+        Navigator.pushReplacementNamed(context, LoginScreen.id);
+      },
+      child: Text(
+        'SIGN OUT',
+        style: TextStyle(
+          fontWeight: FontWeight.w700,
+          fontSize: 14.0,
+          color: secondaryColor,
+        ),
+      ),
     );
 
     // Button category
@@ -182,6 +209,10 @@ class _UserScreenState extends State<UserScreen> {
                     ButtonTrash,
                     SizedBox(height: 20.0),
                     ButtonSetting,
+                    SizedBox(height: 55.0),
+                    Center(
+                      child: ButtonSignOut,
+                    ),
                   ],
                 ),
               ),
