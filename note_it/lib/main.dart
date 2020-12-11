@@ -75,6 +75,9 @@ class MyApp extends StatelessWidget {
           fontFamily: 'Montserrat',
         ),
         home: AuthWrapper(),
+        routes: {
+          NoteCRUD.id: (context) => NoteCRUD(),
+        },
       ),
     );
   }

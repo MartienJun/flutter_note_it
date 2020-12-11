@@ -77,10 +77,10 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           floatingActionButton: FloatingActionButton(
             onPressed: () {
-              //Navigator.pushNamed(context, NoteCRUD.id, arguments: null);
-              Navigator.push(context, MaterialPageRoute(builder: (context) {
-                return NoteCRUD();
-              }));
+              Navigator.pushNamed(context, NoteCRUD.id, arguments: null);
+              // Navigator.push(context, MaterialPageRoute(builder: (context) {
+              //   return NoteCRUD();
+              // }));
             },
             elevation: 1,
             backgroundColor: primaryColor,
