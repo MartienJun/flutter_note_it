@@ -1,10 +1,17 @@
+// Flutter
 import 'package:flutter/material.dart';
 
+// Firebase
 import 'package:cloud_firestore/cloud_firestore.dart';
 
+// Models
 import 'package:note_it/models/note.dart';
+
+// CRUD
 import 'package:note_it/crud/note_crud.dart';
 import 'package:note_it/crud/note_card.dart';
+
+// Components
 import 'package:note_it/components/constants.dart';
 import 'package:note_it/components/authentication.dart';
 

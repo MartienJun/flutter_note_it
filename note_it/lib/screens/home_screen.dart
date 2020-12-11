@@ -1,7 +1,9 @@
-import 'package:flutter/cupertino.dart';
+// Flutter
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+
+// Firebase
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 // Components
@@ -10,7 +12,6 @@ import 'package:note_it/components/constants.dart';
 // CRUD
 import 'package:note_it/crud/note_crud.dart';
 import 'package:note_it/crud/note_stream.dart';
-import 'package:note_it/components/constants.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String id = 'home_page';

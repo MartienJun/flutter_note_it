@@ -1,6 +1,10 @@
+// Flutter
 import 'package:flutter/material.dart';
 
+// Models
 import 'package:note_it/models/note.dart';
+
+// Components
 import 'package:note_it/components/constants.dart';
 
 class NoteCard extends StatelessWidget {

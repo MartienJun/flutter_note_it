@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 // Components
-import 'file:///D:/Martien/Github/flutter_note_it/note_it/lib/components/constants.dart';
+import 'package:note_it/components/constants.dart';
 
 // Screens
 import 'package:note_it/screens/home_screen.dart';
-import 'package:note_it/screens/reminder_screen.dart';
 import 'package:note_it/screens/user_screen.dart';
+import 'package:note_it/screens/reminder_screen.dart';
 
 class MyNavigation extends StatefulWidget {
   static const String id = 'my_navigation';
@@ -118,7 +118,7 @@ class _MyNavigationState extends State<MyNavigation> {
               style: TextStyle(
                 color: _selectedIndex == 2 ? secondaryColor : Colors.white,
                 fontWeight:
-                _selectedIndex == 2 ? FontWeight.w700 : FontWeight.w400,
+                    _selectedIndex == 2 ? FontWeight.w700 : FontWeight.w400,
               ),
             ),
             backgroundColor: primaryColor,

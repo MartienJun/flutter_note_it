@@ -1,6 +1,9 @@
-import 'package:flutter/cupertino.dart';
+// Flutter
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+
+// Firebase
 import 'package:firebase_auth/firebase_auth.dart';
 
 // Components
@@ -22,8 +25,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
   @override
   Widget build(BuildContext context) {
     // Controller for Firebase query
-    final TextEditingController registEmailController = TextEditingController();
-    final TextEditingController registPasswordController = TextEditingController();
+    final TextEditingController emailController = TextEditingController();
+    final TextEditingController passwordController = TextEditingController();
     final FirebaseAuth _fireauth = FirebaseAuth.instance;
 
     Size size = MediaQuery.of(context).size;
@@ -46,7 +49,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
       ),
       child: TextField(
         onChanged: null,
-        controller: registEmailController,
+        controller: emailController,
         decoration: InputDecoration(
           labelText: 'Email',
           icon: Icon(
@@ -84,7 +87,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
       child: TextField(
         obscureText: true,
         onChanged: null,
-        controller: registPasswordController,
+        controller: passwordController,
         decoration: InputDecoration(
           labelText: 'Password',
           icon: Icon(
@@ -111,8 +114,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
         try {
           UserCredential result = await AuthenticationService.firebaseAuth
               .createUserWithEmailAndPassword(
-            email: registEmailController.text.trim(),
-            password: registPasswordController.text.trim(),
+            email: emailController.text.trim(),
+            password: passwordController.text.trim(),
           );
 
           if (result != null) {

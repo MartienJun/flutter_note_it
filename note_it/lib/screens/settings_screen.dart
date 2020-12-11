@@ -1,6 +1,9 @@
+// Flutter
 import 'package:flutter/material.dart';
-import 'package:note_it/components/constants.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+
+// Components
+import 'package:note_it/components/constants.dart';
 
 class SettingsScreen extends StatefulWidget {
   static const String id = 'settings_screen';
@@ -39,7 +42,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
     );
 
     return OrientationBuilder(
-      builder: (context, orientation){
+      builder: (context, orientation) {
         return Scaffold(
           appBar: AppBar(
             title: Text('Settings'),

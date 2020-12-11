@@ -1,6 +1,9 @@
-import 'package:flutter/cupertino.dart';
+// Flutter
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+
+// Firebase
 import 'package:firebase_auth/firebase_auth.dart';
 
 // Components
@@ -170,7 +173,7 @@ class _LoginScreenState extends State<LoginScreen> {
     // Button Google
     Widget ButtonGoogle = InkWell(
       splashColor: Colors.white60,
-      onTap: (){},
+      onTap: () {},
       child: Container(
           width: size.width,
           height: size.height / 15.0,
@@ -202,8 +205,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               ),
             ],
-          )
-      ),
+          )),
     );
 
     // Slogan field
