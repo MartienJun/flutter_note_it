@@ -11,6 +11,7 @@ import 'package:note_it/screens/login_screen.dart';
 import 'package:note_it/screens/trash_screen.dart';
 import 'package:note_it/screens/category_screen.dart';
 import 'package:note_it/screens/settings_screen.dart';
+import 'package:note_it/utils/storage.dart';
 
 class UserScreen extends StatefulWidget {
   static const String id = 'user_screen';
@@ -20,6 +21,25 @@ class UserScreen extends StatefulWidget {
 }
 
 class _UserScreenState extends State<UserScreen> {
+  Storage _storage;
+  String _displayName = '';
+  
+  @override
+  void initState() {
+    _storage = Storage();
+    _getDisplayName().then((value) {
+      setState(() {
+        _displayName = value;
+      });
+    });
+    super.initState();
+  }
+
+  Future<String> _getDisplayName() async {
+    await _storage.init();
+    return _storage.getEmail();
+  }
+  
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -33,7 +53,7 @@ class _UserScreenState extends State<UserScreen> {
         ),
         SizedBox(height: 10.0),
         Text(
-          'Hi, ' + AuthenticationService.firebaseAuth.currentUser.email,
+          'Hi, ' + _displayName,
           style: TextStyle(
             fontSize: 24.0,
             fontWeight: FontWeight.bold,
@@ -55,8 +75,10 @@ class _UserScreenState extends State<UserScreen> {
         borderRadius: BorderRadius.circular(30.0),
       ),
       splashColor: primaryColor.withOpacity(0.15),
-      onPressed: () {
-        AuthenticationService.firebaseAuth.signOut();
+      onPressed: () async {
+        await AuthenticationService.firebaseAuth.signOut();
+        await _storage.init();
+        await _storage.clearUID();
         Navigator.pushReplacementNamed(context, LoginScreen.id);
       },
       child: Text(

@@ -12,6 +12,7 @@ import 'package:note_it/components/constants.dart';
 // CRUD
 import 'package:note_it/crud/note_crud.dart';
 import 'package:note_it/crud/note_stream.dart';
+import 'package:note_it/utils/storage.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String id = 'home_page';
@@ -21,6 +22,25 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  Storage _storage;
+  String _uid;
+
+  @override
+  void initState() {
+    _storage = Storage();
+    _getUserUID().then((value) {
+      setState(() {
+        _uid = value;
+      });
+    });
+    super.initState();
+  }
+
+  Future<String> _getUserUID() async {
+    await _storage.init();
+    return _storage.getUID();
+  }
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -65,7 +85,7 @@ class _HomeScreenState extends State<HomeScreen> {
     Widget noteList = ListView(
       scrollDirection: Axis.vertical,
       children: <Widget>[
-        NotesStream(firestore: _firestore),
+        NotesStream(fireStore: _firestore, uid: _uid),
       ],
     );
 

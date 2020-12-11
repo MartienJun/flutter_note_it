@@ -16,16 +16,17 @@ import 'package:note_it/components/constants.dart';
 import 'package:note_it/components/authentication.dart';
 
 class NotesStream extends StatelessWidget {
-  final FirebaseFirestore _firestore;
+  final FirebaseFirestore fireStore;
+  final String uid;
 
-  NotesStream({firestore}) : _firestore = firestore;
+  NotesStream({this.fireStore, this.uid});
 
   @override
   Widget build(BuildContext context) {
     return StreamBuilder(
-      stream: _firestore
+      stream: fireStore
           .collection('notes')
-          .doc(AuthenticationService.firebaseAuth.currentUser.uid)
+          .doc(uid)
           .collection('notes')
           .snapshots(),
       builder: (context, snapshot) {

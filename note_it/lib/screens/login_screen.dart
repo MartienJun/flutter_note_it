@@ -13,6 +13,7 @@ import 'package:note_it/components/authentication.dart';
 
 // Screens
 import 'package:note_it/screens/register_screen.dart';
+import 'package:note_it/utils/storage.dart';
 
 class LoginScreen extends StatefulWidget {
   static const String id = 'login_screen';
@@ -26,6 +27,21 @@ class _LoginScreenState extends State<LoginScreen> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   final FirebaseAuth _fireauth = FirebaseAuth.instance;
+  Storage _storage;
+
+  @override
+  void initState() {
+    _storage = Storage();
+    isAuthenticated().then((value) {
+      if(value) Navigator.pushReplacementNamed(context, MyNavigation.id);
+    });
+    super.initState();
+  }
+
+  Future<bool> isAuthenticated() async {
+    await _storage.init();
+    return _storage.getUID() != null;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -128,7 +144,11 @@ class _LoginScreenState extends State<LoginScreen> {
           );
 
           if (result != null) {
+            await _storage.setUID(result.user.uid);
+            await _storage.setEmail(result.user.email);
             Navigator.pushReplacementNamed(context, MyNavigation.id);
+            // TODO: Show the current user
+            print(AuthenticationService.firebaseAuth.currentUser);
           }
         } on FirebaseAuthException catch (e) {
           print(e);
@@ -334,6 +354,8 @@ class _LoginScreenState extends State<LoginScreen> {
         ),
       ),
     );
+
+    //print(AuthenticationService.firebaseAuth.currentUser);
 
     return OrientationBuilder(
       builder: (context, orientation) {
