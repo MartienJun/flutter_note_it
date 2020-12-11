@@ -1,11 +1,18 @@
-import 'package:flutter/cupertino.dart';
+// Flutter
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:note_it/constants.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+
+// Firebase
+import 'package:firebase_auth/firebase_auth.dart';
 
 // Components
-import 'package:note_it/screens/register_screen.dart';
+import 'package:note_it/components/constants.dart';
 import 'package:note_it/components/navigation.dart';
+import 'package:note_it/components/authentication.dart';
+
+// Screens
+import 'package:note_it/screens/register_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   static const String id = 'login_screen';
@@ -15,6 +22,11 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  // Controller for Firebase query
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  final FirebaseAuth _fireauth = FirebaseAuth.instance;
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -37,6 +49,7 @@ class _LoginScreenState extends State<LoginScreen> {
       ),
       child: TextField(
         onChanged: null,
+        controller: emailController,
         decoration: InputDecoration(
           labelText: 'Email',
           icon: Icon(
@@ -74,6 +87,7 @@ class _LoginScreenState extends State<LoginScreen> {
       child: TextField(
         obscureText: true,
         onChanged: null,
+        controller: passwordController,
         decoration: InputDecoration(
           labelText: 'Password',
           icon: Icon(
@@ -104,8 +118,21 @@ class _LoginScreenState extends State<LoginScreen> {
         borderRadius: BorderRadius.circular(30.0),
       ),
       splashColor: primaryColor.withOpacity(0.15),
-      onPressed: () {
-        Navigator.pushReplacementNamed(context, MyNavigation.id);
+      onPressed: () async {
+        AuthenticationService(_fireauth);
+        try {
+          UserCredential result = await AuthenticationService.firebaseAuth
+              .signInWithEmailAndPassword(
+            email: emailController.text.trim(),
+            password: passwordController.text.trim(),
+          );
+
+          if (result != null) {
+            Navigator.pushReplacementNamed(context, MyNavigation.id);
+          }
+        } on FirebaseAuthException catch (e) {
+          print(e);
+        }
       },
       child: Text(
         'SIGN IN',
@@ -146,7 +173,7 @@ class _LoginScreenState extends State<LoginScreen> {
     // Button Google
     Widget ButtonGoogle = InkWell(
       splashColor: Colors.white60,
-      onTap: (){},
+      onTap: () {},
       child: Container(
           width: size.width,
           height: size.height / 15.0,
@@ -178,8 +205,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               ),
             ],
-          )
-      ),
+          )),
     );
 
     // Slogan field

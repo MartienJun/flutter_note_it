@@ -1,6 +1,9 @@
+// Flutter
 import 'package:flutter/material.dart';
-import 'package:note_it/constants.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+
+// Components
+import 'package:note_it/components/constants.dart';
 
 class CategoryScreen extends StatefulWidget {
   static const String id = 'category_screen';
@@ -39,7 +42,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
     );
 
     return OrientationBuilder(
-      builder: (context, orientation){
+      builder: (context, orientation) {
         return Scaffold(
           appBar: AppBar(
             title: Text('Category'),

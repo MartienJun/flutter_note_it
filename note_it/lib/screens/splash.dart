@@ -1,7 +1,8 @@
+// Flutter
 import 'dart:async';
 import 'package:flutter/material.dart';
 
-// Screen
+// Screens
 import 'package:note_it/screens/login_screen.dart';
 
 class Splash extends StatefulWidget {

@@ -1,6 +1,8 @@
+// Flutter
 import 'package:flutter/material.dart';
-import 'package:note_it/constants.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+
+// Components
+import 'package:note_it/components/constants.dart';
 
 class EditNote extends StatefulWidget {
   static const String id = 'editNote_screen';
@@ -13,7 +15,7 @@ class _EditNoteState extends State<EditNote> {
   @override
   Widget build(BuildContext context) {
     return OrientationBuilder(
-      builder: (context, orientation){
+      builder: (context, orientation) {
         return Scaffold(
           appBar: AppBar(
             backgroundColor: primaryColor,

@@ -1,21 +1,29 @@
+// Flutter
 import 'package:flutter/material.dart';
+
+// Firebase
+import 'package:firebase_core/firebase_core.dart';
 
 // Components
 import 'package:note_it/components/navigation.dart';
 
 // Screens
 import 'package:note_it/screens/splash.dart';
-import 'package:note_it/screens/login_screen.dart';
-import 'package:note_it/screens/register_screen.dart';
-import 'package:note_it/screens/home_screen.dart';
-import 'package:note_it/screens/reminder_screen.dart';
 import 'package:note_it/screens/user_screen.dart';
-import 'package:note_it/screens/settings_screen.dart';
-import 'package:note_it/screens/editNote_screen.dart';
-import 'package:note_it/screens/category_screen.dart';
+import 'package:note_it/screens/home_screen.dart';
+import 'package:note_it/screens/login_screen.dart';
 import 'package:note_it/screens/trash_screen.dart';
+import 'package:note_it/screens/register_screen.dart';
+import 'package:note_it/screens/reminder_screen.dart';
+import 'package:note_it/screens/settings_screen.dart';
+import 'package:note_it/screens/category_screen.dart';
 
-void main() {
+// CRUD
+import 'package:note_it/crud/note_crud.dart';
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(MyApp());
 }
 
@@ -41,10 +49,10 @@ class MyApp extends StatelessWidget {
         HomeScreen.id: (context) => HomeScreen(),
         ReminderScreen.id: (context) => ReminderScreen(),
         UserScreen.id: (context) => UserScreen(),
-        EditNote.id: (context) => EditNote(),
         CategoryScreen.id: (context) => CategoryScreen(),
         TrashScreen.id: (context) => TrashScreen(),
         SettingsScreen.id: (context) => SettingsScreen(),
+        NoteCRUD.id: (context) => NoteCRUD(),
       },
     );
   }

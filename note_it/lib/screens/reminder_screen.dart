@@ -1,6 +1,9 @@
+// Flutter
 import 'package:flutter/material.dart';
-import 'package:note_it/constants.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+
+// Components
+import 'package:note_it/components/constants.dart';
 
 class ReminderScreen extends StatefulWidget {
   static const String id = 'reminder_screen';

@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 // Components
-import 'package:note_it/constants.dart';
+import 'package:note_it/components/constants.dart';
 
 // Screens
 import 'package:note_it/screens/home_screen.dart';
-import 'package:note_it/screens/reminder_screen.dart';
 import 'package:note_it/screens/user_screen.dart';
+import 'package:note_it/screens/reminder_screen.dart';
 
 class MyNavigation extends StatefulWidget {
   static const String id = 'my_navigation';
@@ -54,15 +54,15 @@ class _MyNavigationState extends State<MyNavigation> {
         children: _screens,
         onPageChanged: _onPageChanged,
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: null,
-        elevation: 1.0,
-        backgroundColor: primaryColor,
-        child: Icon(
-          Icons.add,
-          //color: secondaryColor,
-        ),
-      ),
+      // floatingActionButton: FloatingActionButton(
+      //   onPressed: null,
+      //   elevation: 1.0,
+      //   backgroundColor: primaryColor,
+      //   child: Icon(
+      //     Icons.add,
+      //     //color: secondaryColor,
+      //   ),
+      // ),
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: primaryColor,
         currentIndex: _selectedIndex,
@@ -118,7 +118,7 @@ class _MyNavigationState extends State<MyNavigation> {
               style: TextStyle(
                 color: _selectedIndex == 2 ? secondaryColor : Colors.white,
                 fontWeight:
-                _selectedIndex == 2 ? FontWeight.w700 : FontWeight.w400,
+                    _selectedIndex == 2 ? FontWeight.w700 : FontWeight.w400,
               ),
             ),
             backgroundColor: primaryColor,
