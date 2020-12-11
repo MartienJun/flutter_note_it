@@ -7,7 +7,8 @@ class AuthenticationService {
     AuthenticationService.firebaseAuth = _firebaseAuth;
   }
 
-  Stream<User> get authStateChanges => firebaseAuth.idTokenChanges();
+  //Stream<User> get authStateChanges => firebaseAuth.idTokenChanges();
+  Stream<User> get authStateChanges => firebaseAuth.authStateChanges();
 
   // Sign In
   Future<String> signIn({String email, String password}) async {

@@ -57,7 +57,10 @@ class _UserScreenState extends State<UserScreen> {
       splashColor: primaryColor.withOpacity(0.15),
       onPressed: () {
         AuthenticationService.firebaseAuth.signOut();
-        Navigator.pushReplacementNamed(context, LoginScreen.id);
+        //Navigator.pushReplacementNamed(context, LoginScreen.id);
+        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
+          return LoginScreen();
+        }));
       },
       child: Text(
         'SIGN OUT',
@@ -72,7 +75,10 @@ class _UserScreenState extends State<UserScreen> {
     // Button category
     Widget ButtonCategory = InkWell(
       onTap: () {
-        Navigator.pushNamed(context, CategoryScreen.id);
+        //Navigator.pushNamed(context, CategoryScreen.id);
+        Navigator.push(context, MaterialPageRoute(builder: (context) {
+          return CategoryScreen();
+        }));
       },
       child: Container(
           padding: EdgeInsets.symmetric(vertical: 15.0, horizontal: 25.0),
@@ -110,7 +116,10 @@ class _UserScreenState extends State<UserScreen> {
     // Button trash
     Widget ButtonTrash = InkWell(
       onTap: () {
-        Navigator.pushNamed(context, TrashScreen.id);
+        //Navigator.pushNamed(context, TrashScreen.id);
+        Navigator.push(context, MaterialPageRoute(builder: (context) {
+          return TrashScreen();
+        }));
       },
       child: Container(
           padding: EdgeInsets.symmetric(vertical: 15.0, horizontal: 25.0),
@@ -148,7 +157,10 @@ class _UserScreenState extends State<UserScreen> {
     // Button settings
     Widget ButtonSetting = InkWell(
       onTap: () {
-        Navigator.pushNamed(context, SettingsScreen.id);
+        //Navigator.pushNamed(context, SettingsScreen.id);
+        Navigator.push(context, MaterialPageRoute(builder: (context) {
+          return SettingsScreen();
+        }));
       },
       child: Container(
         padding: EdgeInsets.symmetric(vertical: 15.0, horizontal: 25.0),
