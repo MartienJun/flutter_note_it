@@ -69,7 +69,7 @@ class MyApp extends StatelessWidget {
         ),
       ],
       child: MaterialApp(
-        //debugShowCheckedModeBanner: false,
+        debugShowCheckedModeBanner: false,
         title: 'Note It!',
         theme: ThemeData(
           fontFamily: 'Montserrat',

@@ -23,11 +23,13 @@ class _NoteCRUDState extends State<NoteCRUD> {
 
   String titleString = '';
   String noteString = '';
+  String noteType = '';
 
   FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
   TextEditingController controllerTitle;
   TextEditingController controllerNote;
+  TextEditingController controllerType;
 
   @override
   void initState() {
@@ -36,15 +38,20 @@ class _NoteCRUDState extends State<NoteCRUD> {
 
   @override
   Widget build(BuildContext context) {
-    note = ModalRoute.of(context).settings.arguments;
+    note = ModalRoute
+        .of(context)
+        .settings
+        .arguments;
     if (note != null) {
       titleString = note.title;
       noteString = note.note;
+      noteType = note.type;
     }
 
     controllerTitle =
         TextEditingController(text: note != null ? note.title : '');
     controllerNote = TextEditingController(text: note != null ? note.note : '');
+    controllerType = TextEditingController(text: note != null ? note.type : '');
 
     return Scaffold(
       appBar: AppBar(
@@ -100,6 +107,19 @@ class _NoteCRUDState extends State<NoteCRUD> {
                 },
               ),
             ),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: marginL),
+              child: TextField(
+                controller: controllerType,
+                textAlign: TextAlign.start,
+                decoration: InputDecoration(
+                  hintText: 'Note category...',
+                ),
+                onChanged: (value) {
+                  noteType = value;
+                },
+              ),
+            ),
             SizedBox(
               height: marginS,
             ),
@@ -129,14 +149,14 @@ class _NoteCRUDState extends State<NoteCRUD> {
           .collection('notes')
           .doc(AuthenticationService.firebaseAuth.currentUser.uid)
           .collection('notes')
-          .add({'title': titleString, 'note': noteString});
+          .add({'title': titleString, 'note': noteString, 'type': noteType});
     } else {
       _firestore
           .collection('notes')
           .doc(AuthenticationService.firebaseAuth.currentUser.uid)
           .collection('notes')
           .doc(note.id)
-          .update({'title': titleString, 'note': noteString});
+          .update({'title': titleString, 'note': noteString, 'type': noteType});
     }
   }
 }

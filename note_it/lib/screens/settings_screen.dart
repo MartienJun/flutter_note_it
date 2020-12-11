@@ -24,7 +24,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           SvgPicture.asset(
-            'assets/icons/trash.svg',
+            'assets/icons/settings.svg',
             color: primaryColor,
             width: 120.0,
           ),
