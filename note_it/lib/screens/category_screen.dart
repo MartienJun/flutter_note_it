@@ -78,7 +78,18 @@ class _CategoryScreenState extends State<CategoryScreen> {
       builder: (context, orientation) {
         return Scaffold(
           appBar: AppBar(
-            title: Text('Category'),
+            title: Text(
+              'Trash',
+              style: TextStyle(
+                color: secondaryColor,
+                fontWeight: FontWeight.w700,
+                fontSize: 24.0,
+                letterSpacing: 0.0,
+              ),
+            ),
+            iconTheme: IconThemeData(
+              color: secondaryColor,
+            ),
             centerTitle: true,
             backgroundColor: primaryColor,
           ),

@@ -57,17 +57,22 @@ class _NoteCRUDState extends State<NoteCRUD> {
       appBar: AppBar(
         backgroundColor: primaryColor,
         title: Text(
-          note != null ? 'Edit note' : 'Add note',
+          note != null ? 'Edit Note' : 'Add Note',
           style: TextStyle(
+            color: secondaryColor,
             fontWeight: FontWeight.w700,
-            fontSize: 24,
+            fontSize: 24.0,
+            letterSpacing: 0.0,
           ),
         ),
+        iconTheme: IconThemeData(
+          color: secondaryColor,
+        ),
+        centerTitle: true,
         actions: <Widget>[
           IconButton(
             icon: Icon(
               Icons.save,
-              color: Colors.white,
             ),
             onPressed: () {
               saveClicked();
@@ -77,7 +82,6 @@ class _NoteCRUDState extends State<NoteCRUD> {
           IconButton(
             icon: Icon(
               Icons.delete,
-              color: Colors.white,
             ),
             onPressed: () {
               _firestore
@@ -95,10 +99,14 @@ class _NoteCRUDState extends State<NoteCRUD> {
         child: Column(
           children: <Widget>[
             Padding(
-              padding: EdgeInsets.only(top: marginS),
+              padding: EdgeInsets.all(marginL),
               child: TextField(
+                style: TextStyle(
+                  fontSize: 16.0,
+                  fontWeight: FontWeight.w500,
+                ),
                 controller: controllerTitle,
-                textAlign: TextAlign.center,
+                //textAlign: TextAlign.center,
                 decoration: InputDecoration(
                   hintText: 'Note title...',
                 ),
@@ -108,7 +116,7 @@ class _NoteCRUDState extends State<NoteCRUD> {
               ),
             ),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: marginL),
+              padding: EdgeInsets.all(marginL),
               child: TextField(
                 controller: controllerType,
                 textAlign: TextAlign.start,

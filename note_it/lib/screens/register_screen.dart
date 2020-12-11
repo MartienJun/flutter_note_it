@@ -291,13 +291,19 @@ class _RegisterScreenState extends State<RegisterScreen> {
     return OrientationBuilder(
       builder: (context, orientation) {
         return Scaffold(
-          resizeToAvoidBottomPadding: false, //Sementara
+          //resizeToAvoidBottomPadding: false, //Sementara
           body: SafeArea(
-            child: Column(
-              children: [
-                slogan,
-                registerField,
-              ],
+            child: SingleChildScrollView(
+              child: Container(
+                width: size.width,
+                height: size.height / 1.05,
+                child: Column(
+                  children: [
+                    slogan,
+                    registerField,
+                  ],
+                ),
+              ),
             ),
           ),
         );

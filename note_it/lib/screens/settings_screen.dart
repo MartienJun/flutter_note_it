@@ -45,7 +45,18 @@ class _SettingsScreenState extends State<SettingsScreen> {
       builder: (context, orientation) {
         return Scaffold(
           appBar: AppBar(
-            title: Text('Settings'),
+            title: Text(
+              'Settings',
+              style: TextStyle(
+                color: secondaryColor,
+                fontWeight: FontWeight.w700,
+                fontSize: 24.0,
+                letterSpacing: 0.0,
+              ),
+            ),
+            iconTheme: IconThemeData(
+              color: secondaryColor,
+            ),
             centerTitle: true,
             backgroundColor: primaryColor,
           ),

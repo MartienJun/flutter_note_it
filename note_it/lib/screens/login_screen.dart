@@ -1,6 +1,7 @@
 // Flutter
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 // Firebase
@@ -344,13 +345,19 @@ class _LoginScreenState extends State<LoginScreen> {
     return OrientationBuilder(
       builder: (context, orientation) {
         return Scaffold(
-          resizeToAvoidBottomPadding: false, //Sementara
+          //resizeToAvoidBottomPadding: false, //Sementara
           body: SafeArea(
-            child: Column(
-              children: <Widget>[
-                Slogan,
-                signInField,
-              ],
+            child: SingleChildScrollView(
+              child: Container(
+                width: size.width,
+                height: size.height / 1.05,
+                child: Column(
+                  children: <Widget>[
+                    Slogan,
+                    signInField,
+                  ],
+                ),
+              ),
             ),
           ),
         );

@@ -36,7 +36,11 @@ class NoteCard extends StatelessWidget {
           borderRadius: BorderRadius.circular(20.0),
           color: Colors.white,
           boxShadow: [
-            BoxShadow(color: ColorGray, offset: Offset(0, 2), blurRadius: 12.0)
+            BoxShadow(
+              color: Colors.black.withOpacity(0.16),
+              offset: Offset(0.0, 2.0),
+              blurRadius: 4.0,
+            ),
           ],
         ),
       ),
