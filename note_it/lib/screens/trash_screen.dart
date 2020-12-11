@@ -30,7 +30,7 @@ class _TrashScreenState extends State<TrashScreen> {
           ),
           SizedBox(height: 22.0),
           Text(
-            'Trash is Empty',
+            'Trash is under construction',
             style: TextStyle(
               color: secondaryColor,
               fontWeight: FontWeight.bold,
@@ -45,7 +45,18 @@ class _TrashScreenState extends State<TrashScreen> {
       builder: (context, orientation) {
         return Scaffold(
           appBar: AppBar(
-            title: Text('Trash'),
+            title: Text(
+              'Trash',
+              style: TextStyle(
+                color: secondaryColor,
+                fontWeight: FontWeight.w700,
+                fontSize: 24.0,
+                letterSpacing: 0.0,
+              ),
+            ),
+            iconTheme: IconThemeData(
+              color: secondaryColor,
+            ),
             centerTitle: true,
             backgroundColor: primaryColor,
           ),

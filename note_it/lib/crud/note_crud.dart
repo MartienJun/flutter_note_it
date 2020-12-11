@@ -23,11 +23,13 @@ class _NoteCRUDState extends State<NoteCRUD> {
 
   String titleString = '';
   String noteString = '';
+  String noteType = '';
 
   FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
   TextEditingController controllerTitle;
   TextEditingController controllerNote;
+  TextEditingController controllerType;
 
   @override
   void initState() {
@@ -36,31 +38,41 @@ class _NoteCRUDState extends State<NoteCRUD> {
 
   @override
   Widget build(BuildContext context) {
-    note = ModalRoute.of(context).settings.arguments;
+    note = ModalRoute
+        .of(context)
+        .settings
+        .arguments;
     if (note != null) {
       titleString = note.title;
       noteString = note.note;
+      noteType = note.type;
     }
 
     controllerTitle =
         TextEditingController(text: note != null ? note.title : '');
     controllerNote = TextEditingController(text: note != null ? note.note : '');
+    controllerType = TextEditingController(text: note != null ? note.type : '');
 
     return Scaffold(
       appBar: AppBar(
         backgroundColor: primaryColor,
         title: Text(
-          note != null ? 'Edit note' : 'Add note',
+          note != null ? 'Edit Note' : 'Add Note',
           style: TextStyle(
+            color: secondaryColor,
             fontWeight: FontWeight.w700,
-            fontSize: 24,
+            fontSize: 24.0,
+            letterSpacing: 0.0,
           ),
         ),
+        iconTheme: IconThemeData(
+          color: secondaryColor,
+        ),
+        centerTitle: true,
         actions: <Widget>[
           IconButton(
             icon: Icon(
               Icons.save,
-              color: Colors.white,
             ),
             onPressed: () {
               saveClicked();
@@ -70,7 +82,6 @@ class _NoteCRUDState extends State<NoteCRUD> {
           IconButton(
             icon: Icon(
               Icons.delete,
-              color: Colors.white,
             ),
             onPressed: () {
               _firestore
@@ -88,15 +99,32 @@ class _NoteCRUDState extends State<NoteCRUD> {
         child: Column(
           children: <Widget>[
             Padding(
-              padding: EdgeInsets.only(top: marginS),
+              padding: EdgeInsets.all(marginL),
               child: TextField(
+                style: TextStyle(
+                  fontSize: 16.0,
+                  fontWeight: FontWeight.w500,
+                ),
                 controller: controllerTitle,
-                textAlign: TextAlign.center,
+                //textAlign: TextAlign.center,
                 decoration: InputDecoration(
                   hintText: 'Note title...',
                 ),
                 onChanged: (value) {
                   titleString = value;
+                },
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.all(marginL),
+              child: TextField(
+                controller: controllerType,
+                textAlign: TextAlign.start,
+                decoration: InputDecoration(
+                  hintText: 'Note category...',
+                ),
+                onChanged: (value) {
+                  noteType = value;
                 },
               ),
             ),
@@ -129,14 +157,14 @@ class _NoteCRUDState extends State<NoteCRUD> {
           .collection('notes')
           .doc(AuthenticationService.firebaseAuth.currentUser.uid)
           .collection('notes')
-          .add({'title': titleString, 'note': noteString});
+          .add({'title': titleString, 'note': noteString, 'type': noteType});
     } else {
       _firestore
           .collection('notes')
           .doc(AuthenticationService.firebaseAuth.currentUser.uid)
           .collection('notes')
           .doc(note.id)
-          .update({'title': titleString, 'note': noteString});
+          .update({'title': titleString, 'note': noteString, 'type': noteType});
     }
   }
 }

@@ -12,7 +12,6 @@ import 'package:note_it/components/navigation.dart';
 import 'package:note_it/components/authentication.dart';
 
 // Screens
-import 'package:note_it/components/navigation.dart';
 
 class RegisterScreen extends StatefulWidget {
   static const String id = 'register_screen';
@@ -119,7 +118,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
           );
 
           if (result != null) {
-            Navigator.pushReplacementNamed(context, MyNavigation.id);
+            //Navigator.pushReplacementNamed(context, MyNavigation.id);
+            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
+              return MyNavigation();
+            }));
           }
         } on FirebaseAuthException catch (e) {
           print(e);
@@ -289,13 +291,19 @@ class _RegisterScreenState extends State<RegisterScreen> {
     return OrientationBuilder(
       builder: (context, orientation) {
         return Scaffold(
-          resizeToAvoidBottomPadding: false, //Sementara
+          //resizeToAvoidBottomPadding: false, //Sementara
           body: SafeArea(
-            child: Column(
-              children: [
-                slogan,
-                registerField,
-              ],
+            child: SingleChildScrollView(
+              child: Container(
+                width: size.width,
+                height: size.height / 1.05,
+                child: Column(
+                  children: [
+                    slogan,
+                    registerField,
+                  ],
+                ),
+              ),
             ),
           ),
         );

@@ -50,17 +50,6 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
 
-    // Note
-    Widget note = Container(
-      margin: EdgeInsets.all(10.0),
-      width: size.width,
-      height: size.height / 4.0,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(20.0),
-        color: Colors.grey,
-      ),
-    );
-
     // Note list
     Widget noteList = ListView(
       scrollDirection: Axis.vertical,
@@ -78,6 +67,9 @@ class _HomeScreenState extends State<HomeScreen> {
           floatingActionButton: FloatingActionButton(
             onPressed: () {
               Navigator.pushNamed(context, NoteCRUD.id, arguments: null);
+              // Navigator.push(context, MaterialPageRoute(builder: (context) {
+              //   return NoteCRUD();
+              // }));
             },
             elevation: 1,
             backgroundColor: primaryColor,

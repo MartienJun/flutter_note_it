@@ -16,11 +16,14 @@ class _SplashState extends State<Splash> {
   // Splash start time
   start() async {
     var _duration = new Duration(seconds: 2);
-    return new Timer(_duration, loginScreen); //duration ..., go to page ...
+    return new Timer(_duration, authScreen); //duration ..., go to page ...
   }
 
-  void loginScreen() {
-    Navigator.of(context).pushReplacementNamed(LoginScreen.id);
+  void authScreen() {
+    //Navigator.of(context).pushReplacementNamed(LoginScreen.id);
+    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
+      return LoginScreen();
+    }));
   }
 
   @override

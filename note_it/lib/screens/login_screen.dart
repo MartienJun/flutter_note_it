@@ -1,6 +1,7 @@
 // Flutter
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 // Firebase
@@ -128,7 +129,10 @@ class _LoginScreenState extends State<LoginScreen> {
           );
 
           if (result != null) {
-            Navigator.pushReplacementNamed(context, MyNavigation.id);
+            //Navigator.pushReplacementNamed(context, MyNavigation.id);
+            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
+              return MyNavigation();
+            }));
           }
         } on FirebaseAuthException catch (e) {
           print(e);
@@ -157,7 +161,10 @@ class _LoginScreenState extends State<LoginScreen> {
       ),
       splashColor: primaryColor.withOpacity(0.15),
       onPressed: () {
-        Navigator.pushNamed(context, RegisterScreen.id);
+        //Navigator.pushNamed(context, RegisterScreen.id);
+        Navigator.push(context, MaterialPageRoute(builder: (context) {
+          return RegisterScreen();
+        }));
       },
       child: Text(
         'SIGN UP',
@@ -338,13 +345,19 @@ class _LoginScreenState extends State<LoginScreen> {
     return OrientationBuilder(
       builder: (context, orientation) {
         return Scaffold(
-          resizeToAvoidBottomPadding: false, //Sementara
+          //resizeToAvoidBottomPadding: false, //Sementara
           body: SafeArea(
-            child: Column(
-              children: <Widget>[
-                Slogan,
-                signInField,
-              ],
+            child: SingleChildScrollView(
+              child: Container(
+                width: size.width,
+                height: size.height / 1.05,
+                child: Column(
+                  children: <Widget>[
+                    Slogan,
+                    signInField,
+                  ],
+                ),
+              ),
             ),
           ),
         );

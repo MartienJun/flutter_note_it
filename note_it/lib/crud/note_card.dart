@@ -20,18 +20,27 @@ class NoteCard extends StatelessWidget {
     return GestureDetector(
       onTap: onPressed,
       child: Container(
+        padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
         margin: EdgeInsets.all(10.0),
         width: size.width,
         height: size.height / 4,
-        child: ListTile(
-          title: Text(note.title),
-          subtitle: Text(note.note),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Text(note.title),
+            Text(note.type),
+            Text(note.note)
+          ],
         ),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20.0),
           color: Colors.white,
           boxShadow: [
-            BoxShadow(color: ColorGray, offset: Offset(0, 10), blurRadius: 5.0)
+            BoxShadow(
+              color: Colors.black.withOpacity(0.16),
+              offset: Offset(0.0, 2.0),
+              blurRadius: 4.0,
+            ),
           ],
         ),
       ),

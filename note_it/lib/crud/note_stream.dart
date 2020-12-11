@@ -38,7 +38,11 @@ class NotesStream extends StatelessWidget {
         List<NoteCard> noteCards = [];
         for (var note in notes) {
           Note noteObject = Note(
-              id: note.documentID, title: note['title'], note: note['note']);
+              id: note.documentID,
+              title: note['title'],
+              note: note['note'],
+              type: note['type']
+          );
           noteCards.add(NoteCard(
             note: noteObject,
             onPressed: () {
