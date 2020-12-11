@@ -1,13 +1,14 @@
 // Flutter
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 // Firebase
 import 'package:firebase_core/firebase_core.dart';
-import 'package:note_it/components/authentication.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 // Components
 import 'package:note_it/components/navigation.dart';
+import 'package:note_it/components/authentication.dart';
 
 // Screens
 import 'package:note_it/screens/splash.dart';
@@ -22,11 +23,14 @@ import 'package:note_it/screens/category_screen.dart';
 
 // CRUD
 import 'package:note_it/crud/note_crud.dart';
-import 'package:provider/provider.dart';
+
+// Others
+import 'package:intl/date_symbol_data_local.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
+  initializeDateFormatting();
   runApp(MyApp());
 }
 
