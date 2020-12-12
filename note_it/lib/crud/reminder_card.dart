@@ -2,16 +2,16 @@
 import 'package:flutter/material.dart';
 
 // Models
-import 'package:note_it/models/note.dart';
+import 'package:note_it/models/reminder.dart';
 
 // Components
 import 'package:note_it/components/constants.dart';
 
-class NoteCard extends StatelessWidget {
-  final Note note;
+class ReminderCard extends StatelessWidget {
+  final Reminder reminder;
   final Function onPressed;
 
-  NoteCard({this.note, this.onPressed});
+  ReminderCard({this.reminder, this.onPressed});
 
   @override
   Widget build(BuildContext context) {
@@ -27,9 +27,9 @@ class NoteCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Text(note.title),
-            Text(note.type),
-            Text(note.note)
+            Text(reminder.event),
+            Text(reminder.time.toString()),
+            Text(reminder.description)
           ],
         ),
         decoration: BoxDecoration(
