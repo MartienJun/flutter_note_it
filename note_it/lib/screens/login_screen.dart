@@ -6,6 +6,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 // Firebase
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 // Components
 import 'package:note_it/components/constants.dart';
@@ -27,6 +28,7 @@ class _LoginScreenState extends State<LoginScreen> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   final FirebaseAuth _fireauth = FirebaseAuth.instance;
+  final _googleSignIn = GoogleSignIn();
 
   @override
   Widget build(BuildContext context) {
@@ -180,7 +182,9 @@ class _LoginScreenState extends State<LoginScreen> {
     // Button Google
     Widget ButtonGoogle = InkWell(
       splashColor: Colors.white60,
-      onTap: () {},
+      onTap: () {
+        _loginWithGoogle();
+      },
       child: Container(
           width: size.width,
           height: size.height / 15.0,
@@ -363,5 +367,13 @@ class _LoginScreenState extends State<LoginScreen> {
         );
       },
     );
+  }
+
+  Future<void> _loginWithGoogle() async {
+    try {
+      await _googleSignIn.signIn();
+    } catch (error) {
+      print(error);
+    }
   }
 }

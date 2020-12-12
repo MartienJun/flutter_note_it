@@ -1,5 +1,6 @@
 // Flutter
 import 'package:flutter/material.dart';
+import 'package:note_it/crud/reminder_crud.dart';
 import 'package:provider/provider.dart';
 
 // Firebase
@@ -81,6 +82,7 @@ class MyApp extends StatelessWidget {
         home: AuthWrapper(),
         routes: {
           NoteCRUD.id: (context) => NoteCRUD(),
+          ReminderCRUD.id: (context) => ReminderCRUD(),
         },
       ),
     );
