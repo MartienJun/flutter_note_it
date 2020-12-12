@@ -28,7 +28,7 @@ class ReminderStream extends StatelessWidget {
           .doc(AuthenticationService.firebaseAuth.currentUser.uid)
           .collection('reminder')
           .snapshots(),
-      builder: (context, snapshot) {
+      builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
         if (!snapshot.hasData) {
           return CircularProgressIndicator(
             backgroundColor: primaryColor,
@@ -38,9 +38,9 @@ class ReminderStream extends StatelessWidget {
         List<ReminderCard> reminderCards = [];
         for (var reminder in reminders) {
           Reminder reminderObject = Reminder(
-              id: reminder.documentID,
+              id: reminder.id,
               event: reminder['event'],
-              time: reminder['time'],
+              time: reminder['time'].toString(),
               description: reminder['description'],
               );
           reminderCards.add(ReminderCard(
